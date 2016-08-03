@@ -178,7 +178,7 @@ module.exports = {
       },
 
       {
-        test: /bootstrap\/dist\/js\/umd\//,
+        test: /bootstrap\/dist\/js\//,
         loader: 'imports?jQuery=jquery'
       },
 

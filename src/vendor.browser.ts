@@ -19,7 +19,7 @@ import 'font-awesome-sass-loader';
 import 'lodash';
 import 'chart.js';
 
-if ('production' === ENV) {
+if (ENV === 'production') {
 
 } else {
     require('angular2-hmr');
