@@ -1,0 +1,12 @@
+.chart {
+  display: block;
+  width: 100%;
+  & canvas {
+    width: 100% !important;
+  }
+}
+
+canvas {
+  display: inline-block;
+  vertical-align: baseline;
+}
