@@ -1,21 +1,13 @@
-import { RouterConfig } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 
 import { Pages } from './modules';
 import { DashBoard } from './modules/dashboard';
 
-export const routes: RouterConfig = [
-    {
-        path: '',
-        component: Pages
-    },
-    {
-        path: 'pages',
-        component: Pages,
+export const ROUTES: Routes = [
+    { path: '', component: Pages },
+    { path: 'pages', component: Pages,
         children: [
-            {
-                path: 'dashboard',
-                component: DashBoard
-            }
+          { path: 'dashboard', component: DashBoard }
         ]
     }
 ];

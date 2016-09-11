@@ -135,7 +135,10 @@ module.exports = {
        */
       {
         test: /\.ts$/,
-        loaders: ['awesome-typescript-loader', 'angular2-template-loader'],
+        loaders: [
+          'awesome-typescript-loader',
+          'angular2-template-loader'
+        ],
         exclude: [/\.(spec|e2e)\.ts$/]
       },
 
@@ -193,8 +196,19 @@ module.exports = {
         exclude: [helpers.root('src/index.html')]
       }
 
-    ]
+    ],
 
+    postloaders: [
+      {
+        test: /\.js$/,
+        loader: 'string-replace-loader',
+        query: {
+          search: 'var sourceMappingUrl = extractSourceMappingUrl\\(cssText\\);',
+          replace: 'var sourceMappingUrl = "";',
+          flag: 'g'
+        }
+      }
+    ]
   },
 
   /*

@@ -22,5 +22,5 @@ import 'chart.js';
 if (ENV === 'production') {
 
 } else {
-    require('angular2-hmr');
+
 }
