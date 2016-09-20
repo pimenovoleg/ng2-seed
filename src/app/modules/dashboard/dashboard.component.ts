@@ -8,7 +8,7 @@ import { ChartJSComponent } from './components/chartjs';
 @Component({
     selector: 'basic-tables',
     encapsulation: ViewEncapsulation.None,
-    directives: [Card, HoverTable, ChartJSComponent],
+    //directives: [Card, HoverTable, ChartJSComponent],
     styles: [require('./dashboard.scss')],
     template: require('./dashboard.tpl.html')
 })

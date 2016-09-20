@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass } from '@angular/common';
+import { NgClass } from '@angular/common';
 
 import { Card, CHART_DIRECTIVES } from '../../../../common/components';
 
@@ -8,7 +8,7 @@ import { ChartJsService } from './chartjs.service';
 @Component({
     selector: 'chart-line',
     providers: [ChartJsService],
-    directives: [Card, CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES],
+    //directives: [Card, CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES],
     template: require('./chartjs.html')
 })
 export class ChartJSComponent {

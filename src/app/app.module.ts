@@ -6,9 +6,12 @@ import { RouterModule } from '@angular/router';
 
 import { ENV_PROVIDERS } from './environment';
 import { ROUTES } from './app.routes';
-import { App } from './app.component';
+
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InteralStateType } from './app.service';
+
+import { App } from './app.component';
+import { PagesModule } from './modules/pages.module';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -18,6 +21,7 @@ const APP_PROVIDERS = [
 
 type StoreType = {
   state: InteralStateType,
+  restoreInputValues: () => void,
   disposeOldHosts: () => void
 };
 
@@ -33,6 +37,7 @@ type StoreType = {
         BrowserModule,
         FormsModule,
         HttpModule,
+        PagesModule,
         RouterModule.forRoot(ROUTES, { useHash: true })
     ],
     providers: [

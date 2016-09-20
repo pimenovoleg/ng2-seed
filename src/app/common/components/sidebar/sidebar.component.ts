@@ -1,13 +1,13 @@
-import {Component, ElementRef, HostListener, ViewEncapsulation} from '@angular/core';
-import {Router} from '@angular/router';
+import { Component, ElementRef, HostListener, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
-    selector: 'gr-sidebar',
+    selector: 'grc-sidebar',
     encapsulation: ViewEncapsulation.None,
     styles: [require('./sidebar.scss')],
     template: require('./sidebar.tpl.html')
 })
-export class Sidebar {
+export class SidebarComponent {
 
     public menuItems: Array<any>;
     public isMenuCollapsed: boolean = false;

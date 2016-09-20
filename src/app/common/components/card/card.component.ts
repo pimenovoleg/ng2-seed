@@ -1,4 +1,4 @@
-import {Component, ViewEncapsulation, Input} from '@angular/core';
+import { Component, ViewEncapsulation, Input } from '@angular/core';
 
 @Component({
     selector: 'gr-card',
@@ -6,7 +6,7 @@ import {Component, ViewEncapsulation, Input} from '@angular/core';
     template: require('./card.tpl.html'),
     encapsulation: ViewEncapsulation.None
 })
-export class Card {
+export class CardComponent {
     @Input() title: String;
     @Input() baCardClass: String;
 }
