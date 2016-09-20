@@ -5,13 +5,12 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 import { ENV_PROVIDERS } from './environment';
-import { ROUTES } from './app.routes';
+import { routing } from './app.routes';
 
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InteralStateType } from './app.service';
 
-import { App } from './app.component';
-import { PagesModule } from './modules/pages.module';
+import { AppComponent } from './app.component';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -29,16 +28,15 @@ type StoreType = {
  * `AppModule` is the main entry point into Angular2's bootstraping process
  */
 @NgModule({
-    bootstrap: [App],
+    bootstrap: [AppComponent],
     declarations: [
-        App
+        AppComponent
     ],
     imports: [
         BrowserModule,
         FormsModule,
         HttpModule,
-        PagesModule,
-        RouterModule.forRoot(ROUTES, { useHash: true })
+        routing
     ],
     providers: [
         ENV_PROVIDERS,

@@ -1,21 +1,23 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
-import { PagesComponent } from './pages.component';
+import { DashBoardModule } from './dashboard/dashboard.module';
 
+import { PagesComponent } from './pages.component';
 import { SidebarComponent } from '../common/components';
 import { HeaderComponent } from '../common/components';
 
+import { pagesRouting } from './pages.routes';
+
 @NgModule({
-    bootstrap: [PagesComponent],
     declarations: [
       PagesComponent,
       SidebarComponent,
       HeaderComponent
     ],
     imports: [
-        BrowserModule
+        DashBoardModule,
+        pagesRouting
     ]
 })
 export class PagesModule {}

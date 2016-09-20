@@ -6,8 +6,4 @@ import { Component, ViewEncapsulation } from '@angular/core';
     styles: [require('normalize.css'), require('./app.scss')],
     template: require('./app.tpl.html')
 })
-export class App {
-    constructor() {
-
-    }
-}
+export class AppComponent { }

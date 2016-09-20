@@ -4,7 +4,7 @@ import {
 } from '@angular/core';
 import { NgClass } from '@angular/common';
 
-declare var Chart:any;
+declare var Chart: any;
 
 @Component({
     selector: 'base-chart',

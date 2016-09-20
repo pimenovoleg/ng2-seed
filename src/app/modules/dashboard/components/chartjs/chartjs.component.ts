@@ -1,7 +1,4 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { NgClass } from '@angular/common';
-
-import { Card, CHART_DIRECTIVES } from '../../../../common/components';
 
 import { ChartJsService } from './chartjs.service';
 

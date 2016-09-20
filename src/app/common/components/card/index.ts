@@ -1,1 +1,1 @@
-export * from './card.component.ts';
+export * from './card.component';

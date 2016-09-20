@@ -1,15 +1,18 @@
+import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { PagesComponent } from './modules/pages.component';
-//import { DashBoard } from './modules/dashboard';
+import { AppComponent } from './app.component';
 
-export const ROUTES: Routes = [
-    { path: '', component: PagesComponent },
-    { path: 'home',  component: PagesComponent },
-    // { path: 'pages', component: Pages,
-    //     children: [
-    //       { path: 'dashboard', component: DashBoard }
-    //     ]
-    // }
+const pagesRoutes: Routes = [
+  {
+    path: 'pages',
+    loadChildren: 'es6-promise!./modules/pages.module#PagesModule'
+//    canLoad: [AuthGuard]
+  }
 ];
 
+const appRoutes: Routes = [
+  ...pagesRoutes
+];
+
+export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes, { useHash: true });
