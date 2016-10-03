@@ -5,17 +5,14 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title><%= webpackConfig.metadata.title %></title>
+  <title>NG2 Seed</title>
 
-  <meta name="description" content="<%= webpackConfig.metadata.title %>">
+  <meta name="description" content="">
 
   <% if (webpackConfig.htmlElements.headTags) { %>
       <!-- Configured Head Tags  -->
       <%= webpackConfig.htmlElements.headTags %>
   <% } %>
-
-  <!-- base url -->
-  <base href="<%= webpackConfig.metadata.baseUrl %>">
 </head>
 
 <body>
@@ -25,11 +22,6 @@
 <div id="preloader">
   <div></div>
 </div>
-
-<% if (webpackConfig.metadata.isDevServer && webpackConfig.metadata.HMR !== true) { %>
-  <!-- Webpack Dev Server reload -->
-  <script src="/webpack-dev-server.js"></script>
-<% } %>
 
 </body>
 </html>

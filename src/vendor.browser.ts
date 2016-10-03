@@ -14,7 +14,7 @@ import 'rxjs/add/operator/mergeMap';
 
 // Web dependencies
 import 'jquery';
-import 'bootstrap-loader';
+
 import 'font-awesome-sass-loader';
 import 'lodash';
 import 'chart.js';

@@ -15,34 +15,11 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
 
 /*
- * Webpack Constants
- */
-const METADATA = {
-  baseUrl: '/'
-};
-
-/*
  * Webpack configuration
  *
  * See: http://webpack.github.io/docs/configuration.html#cli
  */
 module.exports = {
-
-  /*
-   * Static metadata for index.html
-   *
-   * See: (custom attribute)
-   */
-  metadata: METADATA,
-
-  /*
-   * Cache generated modules and chunks to improve performance for multiple incremental builds.
-   * This is enabled by default in watch mode.
-   * You can pass false to disable it.
-   *
-   * See: http://webpack.github.io/docs/configuration.html#cache
-   */
-   //cache: false,
 
   /*
    * The entry point for the bundle
@@ -68,14 +45,9 @@ module.exports = {
      *
      * See: http://webpack.github.io/docs/configuration.html#resolve-extensions
      */
-    extensions: ['', '.ts', '.js', '.json', '.scss'],
+    extensions: ['.ts', '.js', '.json', '.scss'],
 
-    // Make sure root is src
-    root: helpers.root('src'),
-
-    // remove other default values
-    modulesDirectories: ['node_modules'],
-
+    modules: [ helpers.root('.'), 'node_modules' ]
   },
 
   /*
@@ -85,30 +57,7 @@ module.exports = {
    */
   module: {
 
-    /*
-     * An array of applied pre and post loaders.
-     *
-     * See: http://webpack.github.io/docs/configuration.html#module-preloaders-module-postloaders
-     */
-    preLoaders: [
-
-    ],
-
-    /*
-     * An array of automatically applied loaders.
-     *
-     * IMPORTANT: The loaders here are resolved relative to the resource which they are applied to.
-     * This means they are not resolved relative to the configuration file.
-     *
-     * See: http://webpack.github.io/docs/configuration.html#module-loaders
-     */
-    loaders: [
-
-      /*
-       * Typescript loader support for .ts and Angular 2 async routes via .async.ts
-       *
-       * See: https://github.com/s-panferov/awesome-typescript-loader
-       */
+    rules: [
       {
         test: /\.ts$/,
         loaders: [
@@ -116,7 +65,10 @@ module.exports = {
           'angular2-template-loader',
           'angular2-load-children-loader'
         ],
-        exclude: [/\.(spec|e2e)\.ts$/]
+        exclude: [
+          /\.(spec|e2e)\.ts$/,
+          /node_modules/
+        ]
       },
 
       /*
@@ -124,67 +76,31 @@ module.exports = {
        *
        * See: https://github.com/webpack/json-loader
        */
-      {
-        test: /\.json$/,
-        loader: 'json-loader'
-      },
+      { test: /\.json$/, loader: 'json' },
 
       /*
        * to string and css loader support for *.css files
        * Returns file content as string
        *
        */
-      {
-        test: /\.css$/,
-        loaders: ['to-string-loader', 'css-loader']
-      },
+      { test: /\.css$/, loaders: ['to-string-loader', 'css-loader'] },
 
-      {
-        test: /\.scss$/,
-        loaders: ['raw-loader', 'sass-loader']
-      },
+      { test: /\.scss$/, loaders: ['raw-loader', 'sass-loader'] },
 
-      {
-        test: /initial\.scss$/,
-        loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader!sass-loader' })
-      },
+      { test: /initial\.scss$/, loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader!sass-loader' }) },
 
-      {
-        test: /\.woff(2)?(\?v=.+)?$/, loader: 'url-loader?limit=10000&mimetype=application/font-woff'
-      },
+      { test: /\.woff(2)?(\?v=.+)?$/, loader: 'url-loader?limit=10000&mimetype=application/font-woff' },
 
-      {
-        test: /\.(ttf|eot|svg)(\?v=.+)?$/, loader: 'file-loader'
-      },
+      { test: /\.(ttf|eot|svg)(\?v=.+)?$/, loader: 'file-loader' },
 
-      {
-        test: /bootstrap\/dist\/js\//,
-        loader: 'imports?jQuery=jquery'
-      },
+      { test: /bootstrap\/dist\/js\//, loader: 'imports?jQuery=jquery' },
 
       /* Raw loader support for *.html
        * Returns file content as string
        *
        * See: https://github.com/webpack/raw-loader
        */
-      {
-        test: /\.html$/,
-        loader: 'raw-loader',
-        exclude: [helpers.root('src/index.html')]
-      }
-
-    ],
-
-    postloaders: [
-      {
-        test: /\.js$/,
-        loader: 'string-replace-loader',
-        query: {
-          search: 'var sourceMappingUrl = extractSourceMappingUrl\\(cssText\\);',
-          replace: 'var sourceMappingUrl = "";',
-          flag: 'g'
-        }
-      }
+      { test: /\.html$/, loader: 'raw-loader', exclude: [helpers.root('src/index.html')] }
     ]
   },
 
@@ -301,7 +217,7 @@ module.exports = {
    * See: https://webpack.github.io/docs/configuration.html#node
    */
   node: {
-    global: 'window',
+    global: true,
     crypto: 'empty',
     module: false,
     clearImmediate: false,

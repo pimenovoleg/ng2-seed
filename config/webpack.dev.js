@@ -7,6 +7,7 @@ const commonConfig = require('./webpack.common.js');
  */
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 const NamedModulesPlugin = require('webpack/lib/NamedModulesPlugin');
+const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 
 /**
  * Webpack Constants
@@ -15,12 +16,12 @@ const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
 const HOST = process.env.HOST || 'localhost';
 const PORT = process.env.PORT || 3000;
 const HMR = helpers.hasProcessFlag('hot');
-const METADATA = webpackMerge(commonConfig.metadata, {
+const METADATA = {
   host: HOST,
   port: PORT,
   ENV: ENV,
   HMR: HMR
-});
+};
 
 /**
  * Webpack configuration
@@ -28,20 +29,6 @@ const METADATA = webpackMerge(commonConfig.metadata, {
  * See: http://webpack.github.io/docs/configuration.html#cli
  */
 module.exports = webpackMerge(commonConfig, {
-
-  /**
-   * Merged metadata from webpack.common.js for index.html
-   *
-   * See: (custom attribute)
-   */
-  metadata: METADATA,
-
-  /**
-   * Switch loaders to debug mode.
-   *
-   * See: http://webpack.github.io/docs/configuration.html#debug
-   */
-  debug: true,
 
   /**
    * Developer tool to enhance debugging
@@ -121,19 +108,25 @@ module.exports = webpackMerge(commonConfig, {
      * See: https://github.com/webpack/webpack/commit/a04ffb928365b19feb75087c63f13cadfc08e1eb
      */
     new NamedModulesPlugin(),
-  ],
 
-  /**
-   * Static analysis linter for TypeScript advanced options configuration
-   * Description: An extensible linter for the TypeScript language.
-   *
-   * See: https://github.com/wbuchwalter/tslint-loader
-   */
-  tslint: {
-    emitErrors: false,
-    failOnHint: false,
-    resourcePath: 'src'
-  },
+    new LoaderOptionsPlugin({
+      debug: true,
+      options: {
+        metadata: METADATA,
+        /**
+         * Static analysis linter for TypeScript advanced options configuration
+         * Description: An extensible linter for the TypeScript language.
+         *
+         * See: https://github.com/wbuchwalter/tslint-loader
+         */
+        tslint: {
+          emitErrors: false,
+          failOnHint: false,
+          resourcePath: helpers.root('src')
+        },
+      }
+    })
+  ],
 
   /**
    * Webpack Development Server configuration
@@ -161,7 +154,8 @@ module.exports = webpackMerge(commonConfig, {
    * See: https://webpack.github.io/docs/configuration.html#node
    */
   node: {
-    global: 'window',
+    fs: 'empty',
+    global: true,
     crypto: 'empty',
     process: true,
     module: false,
