@@ -8,6 +8,7 @@ const commonConfig = require('./webpack.common.js');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 const NamedModulesPlugin = require('webpack/lib/NamedModulesPlugin');
 const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
+const ProgressPlugin = require('webpack/lib/ProgressPlugin');
 
 /**
  * Webpack Constants
@@ -81,6 +82,8 @@ module.exports = webpackMerge(commonConfig, {
 
   plugins: [
 
+    new ProgressPlugin(),
+
     /**
      * Plugin: DefinePlugin
      * Description: Define free variables.
@@ -137,6 +140,7 @@ module.exports = webpackMerge(commonConfig, {
    * See: https://webpack.github.io/docs/webpack-dev-server.html
    */
   devServer: {
+    contentBase: './src',
     port: METADATA.port,
     host: METADATA.host,
     historyApiFallback: true,
@@ -144,23 +148,14 @@ module.exports = webpackMerge(commonConfig, {
       aggregateTimeout: 300,
       poll: 1000
     },
-    outputPath: helpers.root('dist')
-  },
-
-  /*
-   * Include polyfills or mocks for various node stuff
-   * Description: Node configuration
-   *
-   * See: https://webpack.github.io/docs/configuration.html#node
-   */
-  node: {
-    fs: 'empty',
-    global: true,
-    crypto: 'empty',
-    process: true,
-    module: false,
-    clearImmediate: false,
-    setImmediate: false
+    outputPath: helpers.root('dist'),
+    stats: {
+      colors: true,
+      hash: false,
+      reasons: true,
+      timings: true,
+      version: false
+    }
   }
 
 });

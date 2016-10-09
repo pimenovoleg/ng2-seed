@@ -221,21 +221,5 @@ module.exports = webpackMerge(commonConfig, {
       [/\[?\(?/, /(?:)/]
     ],
     customAttrAssign: [/\)?\]?=/]
-  },
-
-  /*
-   * Include polyfills or mocks for various node stuff
-   * Description: Node configuration
-   *
-   * See: https://webpack.github.io/docs/configuration.html#node
-   */
-  node: {
-    global: 'window',
-    crypto: 'empty',
-    process: false,
-    module: false,
-    clearImmediate: false,
-    setImmediate: false
   }
-
 });

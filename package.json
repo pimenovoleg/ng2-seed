@@ -101,7 +101,7 @@
         "build:prod": "webpack --config config/webpack.prod.js  --progress --profile --colors --display-error-details --display-cached --bail",
 
         "server": "npm run server:dev",
-        "server:dev": "webpack-dev-server --config config/webpack.dev.js --progress --profile --watch --content-base src/",
+        "server:dev": "webpack-dev-server --config config/webpack.dev.js --profile --watch",
         "server:dev:hmr": "npm run server:dev -- --hot",
 
         "start": "npm run server",
