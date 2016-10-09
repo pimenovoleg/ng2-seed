@@ -89,15 +89,11 @@
         "webpack-merge": "0.14.1"
     },
     "scripts": {
-        "typedoc": "typedoc",
-        "tslint": "tslint",
-        "webpack": "webpack",
-        "webpack-dev-server": "webpack-dev-server",
         "test": "karma start",
 
         "clean": "npm cache clean && npm run rimraf -- node_modules doc coverage dist",
 
-        "lint": "npm run tslint \"src/**/*.ts\"",
+        "lint": "tslint \"src/**/*.ts\"",
 
         "build": "npm run build:dev",
         "build:dev": "webpack --config config/webpack.dev.js --progress --profile --colors --display-error-details --display-cached",
@@ -109,10 +105,8 @@
 
         "start": "npm run server",
 
-        "docs": "npm run typedoc -- --options typedoc.json --exclude '**/*.spec.ts' ./src/",
-        "docs-pages": "wintersmith build -C docs",
-
-        "lint": "npm run tslint \"src/**/*.ts\""
+        "docs": "typedoc -- --options typedoc.json --exclude '**/*.spec.ts' ./src/",
+        "docs-pages": "wintersmith build -C docs"
     },
     "repository": {
     "type": "git",
