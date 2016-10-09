@@ -93,8 +93,11 @@
         "tslint": "tslint",
         "webpack": "webpack",
         "webpack-dev-server": "webpack-dev-server",
+        "test": "karma start",
 
         "clean": "npm cache clean && npm run rimraf -- node_modules doc coverage dist",
+
+        "lint": "npm run tslint \"src/**/*.ts\"",
 
         "build": "npm run build:dev",
         "build:dev": "webpack --config config/webpack.dev.js --progress --profile --colors --display-error-details --display-cached",

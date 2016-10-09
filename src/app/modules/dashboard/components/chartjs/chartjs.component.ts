@@ -5,7 +5,7 @@ import { ChartJsService } from './chartjs.service';
 @Component({
     selector: 'chart-line',
     providers: [ChartJsService],
-    //directives: [Card, CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES],
+    // directives: [Card, CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES],
     template: require('./chartjs.html')
 })
 export class ChartJSComponent {
