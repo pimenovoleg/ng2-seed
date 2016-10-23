@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 import { ENV_PROVIDERS } from './environment';
-import { routing } from './app.routes';
+import { ROUTES } from './app.routes';
 
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InteralStateType } from './app.service';
@@ -36,7 +36,7 @@ type StoreType = {
         BrowserModule,
         FormsModule,
         HttpModule,
-        routing
+        RouterModule.forRoot(ROUTES, { useHash: true })
     ],
     providers: [
         ENV_PROVIDERS,
