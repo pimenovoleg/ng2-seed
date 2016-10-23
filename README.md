@@ -2,6 +2,8 @@
 
 > Example page: /#/pages/dashboard.
 
+[![dependency status][david-img]][david-url]
+
 ## Install
 ```
 npm i
