@@ -28,4 +28,8 @@ a.gr-logo {
   span {
     color: $danger;
   }
+
+  &:hover {
+    color: $sidebar-text;
+  }
 }

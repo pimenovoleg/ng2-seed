@@ -1,1 +1,1 @@
-export * from './PageTop.component.ts';
+export * from './header.component.ts';

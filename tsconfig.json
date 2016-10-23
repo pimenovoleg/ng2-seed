@@ -1,18 +1,21 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "module": "commonjs",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "noEmitHelpers": true,
-    "lib": ["es5", "dom"],
     "strictNullChecks": false,
     "baseUrl": "./src",
-    "paths": [],
+    "paths": {},
+    "lib": [
+      "dom",
+      "es6"
+    ],
     "types": [
-      "core-js",
       "jasmine",
       "node",
       "source-map",
