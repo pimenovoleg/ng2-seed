@@ -1,12 +1,17 @@
 # [ng2-seed][author-www-url] [![The MIT License][license-img]][license-url] 
 
-> Example page: /#/pages/dashboard.
+> Example page: /#/pages/dashboard
 
 [![dependency status][david-img]][david-url]
 
 ## Install
 ```
 npm i
+```
+
+## Run
+```
+npm run server:dev
 ```
 
 ## Contributing
