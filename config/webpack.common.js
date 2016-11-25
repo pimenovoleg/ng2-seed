@@ -54,7 +54,7 @@ module.exports = {
      */
     extensions: ['.ts', '.js', '.json', '.scss'],
 
-    modules: [ helpers.root('.'), 'node_modules' ]
+    modules: [ helpers.root('.'), helpers.root('node_modules') ]
   },
 
   /*
@@ -83,31 +83,31 @@ module.exports = {
        *
        * See: https://github.com/webpack/json-loader
        */
-      { test: /\.json$/, loader: 'json' },
+      { test: /\.json$/, use: 'json-loader' },
 
       /*
        * to string and css loader support for *.css files
        * Returns file content as string
        *
        */
-      { test: /\.css$/, loaders: ['to-string-loader', 'css-loader'] },
+      { test: /\.css$/, use: ['to-string-loader', 'css-loader'] },
 
-      { test: /\.scss$/, loaders: ['raw-loader', 'sass-loader'] },
+      { test: /\.scss$/, use: ['raw-loader', 'sass-loader'] },
 
-      { test: /initial\.scss$/, loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader!sass-loader' }) },
+      { test: /initial\.scss$/, use: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader!sass-loader' }) },
 
-      { test: /\.woff(2)?(\?v=.+)?$/, loader: 'url-loader?limit=10000&mimetype=application/font-woff' },
+      { test: /\.woff(2)?(\?v=.+)?$/, use: 'url-loader?limit=10000&mimetype=application/font-woff' },
 
-      { test: /\.(ttf|eot|svg)(\?v=.+)?$/, loader: 'file-loader' },
+      { test: /\.(ttf|eot|svg)(\?v=.+)?$/, use: 'file-loader' },
 
-      { test: /bootstrap\/dist\/js\//, loader: 'imports?jQuery=jquery' },
+      { test: /bootstrap\/dist\/js\//, use: 'imports?jQuery=jquery' },
 
       /* Raw loader support for *.html
        * Returns file content as string
        *
        * See: https://github.com/webpack/raw-loader
        */
-      { test: /\.html$/, loader: 'raw-loader', exclude: [helpers.root('src/index.html')] }
+      { test: /\.html$/, use: 'raw-loader', exclude: [helpers.root('src/index.html')] }
     ]
   },
 

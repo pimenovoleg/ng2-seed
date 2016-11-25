@@ -66,7 +66,7 @@
         "parse5": "2.2.3",
         "rimraf": "2.5.4",
 
-        "awesome-typescript-loader": "3.0.0-beta.3",
+        "awesome-typescript-loader": "2.2.4",
         "angular2-template-loader": "0.6.0",
 
         "font-awesome-sass-loader": "1.0.2",
