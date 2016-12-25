@@ -37,7 +37,7 @@ module.exports = {
      *
      * See: http://webpack.github.io/docs/configuration.html#resolve-extensions
      */
-    extensions: ['', '.ts', '.js'],
+    extensions: ['.ts', '.js'],
 
     /**
      * Make sure root is src

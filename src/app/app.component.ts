@@ -1,9 +1,7 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'app',
-    encapsulation: ViewEncapsulation.None,
-    styles: [require('normalize.css'), require('./app.scss')],
-    template: require('./app.tpl.html')
+    template: require('./app.component.html')
 })
 export class AppComponent { }
