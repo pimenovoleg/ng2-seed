@@ -1,22 +1,16 @@
 import { NgModule } from '@angular/core';
-
-// import { DashBoardModule } from './dashboard/dashboard.module';
+import { RouterModule } from '@angular/router';
 
 import { PagesComponent } from './pages.component';
-// import { SidebarComponent } from '../common/components';
-// import { HeaderComponent } from '../common/components';
 
-// import { pagesRouting } from './pages.routes';
+import { ROUTES } from './pages.routes';
 
 @NgModule({
-//     imports: [
-// //      DashBoardModule,
-// //      pagesRouting
-//     ],
     declarations: [
-      PagesComponent,
-      // SidebarComponent,
-      // HeaderComponent
+        PagesComponent
+    ],
+    imports: [
+        RouterModule.forChild(ROUTES)
     ]
 })
 export class PagesModule {}

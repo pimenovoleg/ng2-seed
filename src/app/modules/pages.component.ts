@@ -1,7 +1,7 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-    selector: 'pages',
+    selector: 'app-pages',
     template: require('./pages.tpl.html')
 })
 export class PagesComponent {}

@@ -59,10 +59,17 @@ declare module '*';
 // Extra variables that live on Global that will be replaced by webpack DefinePlugin
 declare var ENV: string;
 declare var HMR: boolean;
+declare var System: SystemJS;
 
 interface GlobalEnvironment {
-  ENV: string;
-  HMR: boolean;
+    ENV: string;
+    HMR: boolean;
+    SystemJS: SystemJS;
+    System: SystemJS;
+}
+
+interface SystemJS {
+    import: (path?: string) => Promise<any>;
 }
 
 interface Es6PromiseLoader {
