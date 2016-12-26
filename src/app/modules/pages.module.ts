@@ -11,6 +11,9 @@ import { ROUTES } from './pages.routes';
     ],
     imports: [
         RouterModule.forChild(ROUTES)
+    ],
+    exports: [
+        PagesComponent
     ]
 })
 export class PagesModule {}

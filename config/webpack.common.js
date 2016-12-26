@@ -102,7 +102,7 @@ module.exports = {
                 test: /\.ts$/,
                 use: [
                     'angular2-template-loader',
-                    'angular-router-loader?loader=system&genDir=src&aot=false'
+                    'angular-router-loader?loader=require&genDir=src&aot=false'
                 ],
                 exclude: [
                     /node_modules/
