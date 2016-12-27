@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { PagesComponent } from './pages.component';
-
 import { ROUTES } from './pages.routes';
 
 @NgModule({
@@ -11,9 +10,6 @@ import { ROUTES } from './pages.routes';
     ],
     imports: [
         RouterModule.forChild(ROUTES)
-    ],
-    exports: [
-        PagesComponent
     ]
 })
 export class PagesModule {}

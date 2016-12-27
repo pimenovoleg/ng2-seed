@@ -1,19 +1,10 @@
-import { Component, ElementRef, HostListener, ViewEncapsulation } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, Input } from '@angular/core';
 
 @Component({
-    selector: 'grc-sidebar',
-    encapsulation: ViewEncapsulation.None,
+    selector: 'mc-sidenav',
     styles: [require('./sidebar.scss')],
     template: require('./sidebar.tpl.html')
 })
-export class SidebarComponent {
-
-    public menuItems: Array<any>;
-    public isMenuCollapsed: boolean = false;
-
-    public ngOnInit(): void {
-
-    }
-
+export class SidenavComponent {
+    @Input() open = false;
 }

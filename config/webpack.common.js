@@ -29,8 +29,6 @@ const appMain = helpers.root(appConfig.root, appConfig.main);
 const nodeModules = helpers.root('node_modules');
 
 let entryPoints = {
-    polyfills: './src/polyfills.browser.ts',
-    vendor: './src/vendor.browser.ts',
     main: appMain
 };
 
@@ -114,20 +112,37 @@ module.exports = {
              * Returns file content as string
              *
              */
-            {test: /\.css$/, use: ['to-string-loader', 'css-loader']},
-
-            {test: /\.scss$/, use: ['raw-loader', 'sass-loader']},
-
             {
-                test: /initial\.scss$/,
-                use: ExtractTextPlugin.extract({fallbackLoader: 'style-loader', loader: 'css-loader!sass-loader'})
+                test: /\.css$/,
+                include: [
+                    helpers.root('src', 'app')
+                ],
+                loader:'to-string-loader!css-loader'
             },
 
-            /* Raw loader support for *.html
-             * Returns file content as string
-             *
-             * See: https://github.com/webpack/raw-loader
-             */
+            {
+                test: /\.css$/,
+                exclude: [
+                    helpers.root('src', 'app')
+                ],
+                loader: ExtractTextPlugin.extract({fallbackLoader:'style-loader',loader:'css-loader'})
+            },
+
+            {
+                test: /\.scss$/,
+                exclude: [
+                    helpers.root('src', 'app')
+                ],
+                loader: ExtractTextPlugin.extract({fallbackLoader:'style-loader',loader:'css-loader!sass-loader'})
+            },
+            {
+                test: /\.scss$/,
+                include: [
+                    helpers.root('src', 'app')
+                ],
+                loader:'to-string-loader!css-loader!sass-loader'
+            }
+
 
         ].concat(extraRules)
     },
@@ -138,19 +153,7 @@ module.exports = {
      * See: http://webpack.github.io/docs/configuration.html#plugins
      */
     plugins: [
-        new ExtractTextPlugin({filename: '[name].bundle.css'}),
-
-        /*
-         * Plugin: CommonsChunkPlugin
-         * Description: Shares common code between the pages.
-         * It identifies common modules and put them into a commons chunk.
-         *
-         * See: https://webpack.github.io/docs/list-of-plugins.html#commonschunkplugin
-         * See: https://github.com/webpack/docs/wiki/optimization#multi-page-app
-         */
-        new webpack.optimize.CommonsChunkPlugin({
-            name: ['polyfills', 'vendor'].reverse()
-        }),
+        new ExtractTextPlugin('[name].css'),
 
         /**
          * Plugin: ContextReplacementPlugin

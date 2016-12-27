@@ -1,5 +1,6 @@
-<div class="page-top clearfix">
-  <a href="#/pages/dashboard" class="gr-logo clearfix">
-    <span>NG2-</span>seed
-  </a>
-</div>
+<md-toolbar color="primary">
+    <button md-icon-button (click)="openMenu.emit()">
+        <md-icon>menu</md-icon>
+    </button>
+    <ng-content></ng-content>
+</md-toolbar>

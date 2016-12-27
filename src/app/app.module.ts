@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, NoPreloading, PreloadAllModules } from '@angular/router';
+import { RouterModule, NoPreloading } from '@angular/router';
+
+import { MaterialModule } from '@angular/material';
+
+import { ComponentsModule } from './common/components';
 
 import { AppComponent } from './app.component';
 import { ROUTES } from './app.routes';
@@ -11,7 +15,9 @@ import { ROUTES } from './app.routes';
     ],
     imports: [
         BrowserModule,
-        RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: NoPreloading })
+        RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: NoPreloading }),
+        MaterialModule.forRoot(),
+        ComponentsModule
     ],
     bootstrap: [AppComponent]
 })

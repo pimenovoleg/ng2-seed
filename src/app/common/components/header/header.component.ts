@@ -1,9 +1,9 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
-    selector: 'grc-header',
-    styles: [require('./header.scss')],
-    template: require('./header.html'),
-    encapsulation: ViewEncapsulation.None
+    selector: 'mc-header',
+    template: require('./header.html')
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+    @Output() openMenu = new EventEmitter();
+}

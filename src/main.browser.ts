@@ -1,3 +1,5 @@
+import './polyfills.browser';
+
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 /*
@@ -5,6 +7,8 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 * our top level component that holds all of our components
 */
 import { AppModule } from './app/app.module';
+
+import './main.scss';
 
 export function main(): Promise<any> {
     return platformBrowserDynamic()

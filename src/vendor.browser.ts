@@ -8,6 +8,9 @@ import '@angular/forms';
 import '@angular/http';
 import '@angular/router';
 
+// NG2 Material
+import '@angular/material';
+
 // RxJS
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';

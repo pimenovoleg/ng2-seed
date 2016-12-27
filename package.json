@@ -1,6 +1,6 @@
 {
     "name": "NG2-Seed",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "NG2-UI application",
     "author": "OlegPi",
     "homepage": "http://frontblogger.ru",
@@ -11,7 +11,7 @@
       "webpack2"
     ],
     "contributors": [
-      "OlegPi"
+      "pi_men"
     ],
     "dependencies": {
         "@angular/common": "2.4.1",
@@ -23,6 +23,8 @@
         "@angular/platform-browser-dynamic": "2.4.1",
         "@angular/platform-server": "2.4.1",
         "@angular/router": "3.4.1",
+
+        "@angular/material": "latest",
 
         "rxjs": "5.0.2",
 
@@ -40,7 +42,7 @@
     },
     "devDependencies": {
         "@types/jasmine": "2.5.38",
-        "@types/node": "6.0.53",
+        "@types/node": "6.0.54",
         "@types/source-map": "0.5.0",
         "@types/uglify-js": "2.6.28",
         "@types/webpack": "2.0.0",
@@ -81,7 +83,7 @@
         "to-string-loader": "1.1.5",
 
         "ts-helpers": "1.1.2",
-        "ts-node": "1.7.2",
+        "ts-node": "1.7.3",
         "tslint": "4.2.0",
         "typedoc": "0.5.1",
         "typescript": "2.1.4",
