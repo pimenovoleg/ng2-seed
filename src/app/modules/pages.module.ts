@@ -1,15 +1,20 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+
+import { MaterialModule } from '@angular/material';
+
+import { ComponentsModule } from '../common/components';
 
 import { PagesComponent } from './pages.component';
-import { ROUTES } from './pages.routes';
+import { ROUTING } from './pages.routes';
 
 @NgModule({
     declarations: [
         PagesComponent
     ],
     imports: [
-        RouterModule.forChild(ROUTES)
+        MaterialModule.forRoot(),
+        ROUTING,
+        ComponentsModule
     ]
 })
 export class PagesModule {}

@@ -1,10 +1,13 @@
-import { Routes }  from '@angular/router';
+import { ModuleWithProviders } from '@angular/core';
+import { Routes, RouterModule }  from '@angular/router';
 
 import { PagesComponent } from './pages.component';
 
-export const ROUTES: Routes = [
+const ROUTES: Routes = [
   {
     path: '',
     component: PagesComponent
   }
 ];
+
+export const ROUTING: ModuleWithProviders = RouterModule.forChild(ROUTES);

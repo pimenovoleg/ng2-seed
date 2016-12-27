@@ -6,17 +6,5 @@ import { Component } from '@angular/core';
     styles: [],
 })
 export class AppComponent {
-    showSidenav$: boolean;
 
-    constructor() {
-        this.showSidenav$ = false;
-    }
-
-    closeSidenav() {
-        this.showSidenav$ = false;
-    }
-
-    openSidenav() {
-        this.showSidenav$ = true;
-    }
 }
