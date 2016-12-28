@@ -15,5 +15,11 @@ import '@angular/material';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 
+// ngrx
+import '@ngrx/core';
+import '@ngrx/store';
+
 // Web dependencies
 import 'lodash';
+
+import 'md5';

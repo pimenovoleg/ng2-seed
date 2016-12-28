@@ -26,6 +26,11 @@
 
         "@angular/material": "latest",
 
+        "@ngrx/core": "1.2.0",
+        "@ngrx/effects": "2.0.0",
+        "@ngrx/store": "2.2.1",
+        "@ngrx/store-devtools": "3.2.2",
+
         "rxjs": "5.0.2",
 
         "jquery": "3.1.1",
@@ -38,10 +43,11 @@
         "normalize.css": "5.0.0",
         "zone.js": "0.7.4",
 
-        "immutable": "3.8.1"
+        "immutable": "3.8.1",
+        "md5": "2.2.1"
     },
     "devDependencies": {
-        "@types/jasmine": "2.5.38",
+        "@types/jasmine": "2.5.39",
         "@types/node": "6.0.54",
         "@types/source-map": "0.5.0",
         "@types/uglify-js": "2.6.28",
@@ -85,7 +91,7 @@
         "ts-helpers": "1.1.2",
         "ts-node": "1.7.3",
         "tslint": "4.2.0",
-        "typedoc": "0.5.1",
+        "typedoc": "0.5.3",
         "typescript": "2.1.4",
 
         "webpack": "2.2.0-rc.2",
