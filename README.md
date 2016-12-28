@@ -1,6 +1,6 @@
 # [ng2-seed][author-www-url] [![The MIT License][license-img]][license-url] 
 
-> Example page: /#/pages/dashboard
+> Example page: http://localhost:3000
 
 [![dependency status][david-img]][david-url]
 
