@@ -13,13 +13,13 @@ export const ACTION_TYPES = {
 export class LoadHeroesAction implements Action {
     type = ACTION_TYPES.LOAD;
 
-    constructor(public payload: string) { }
+    constructor() { }
 }
 
 export class LoadHeroesCompleteAction implements Action {
     type = ACTION_TYPES.LOAD_COMPLETE;
 
-    constructor(public payload: Hero[]) { }
+    constructor(public payload: any) { }
 }
 
 export type actions

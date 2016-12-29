@@ -17,8 +17,6 @@ export function reducer(state = initialState, action: hero.actions): State {
     switch (action.type) {
         case hero.ACTION_TYPES.LOAD_COMPLETE: {
 
-            const heroes = action.payload;
-
             return {
                 ids: [ ...state.ids],
                 entities: Object.assign({}, state.entities)

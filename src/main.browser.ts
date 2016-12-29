@@ -1,4 +1,5 @@
 import './polyfills.browser';
+import './vendor.browser';
 
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 

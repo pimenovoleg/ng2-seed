@@ -1,4 +1,4 @@
-import md5 from 'md5';
+const md5 = require('md5/md5');
 
 function timestamp() {
     return Math.floor(Date.now() / 1000);

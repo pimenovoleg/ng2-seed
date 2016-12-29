@@ -1,4 +1,8 @@
-
-<router-outlet></router-outlet>
-
-
+<md-sidenav-layout fullscreen [class.m2app-dark]="true">
+    <mc-sidenav [open]="showSidenav$">
+    </mc-sidenav>
+    <mc-header (openMenu)="openSidenav()">
+        Marvel Interactive
+    </mc-header>
+    <router-outlet></router-outlet>
+</md-sidenav-layout>
