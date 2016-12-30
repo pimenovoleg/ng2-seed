@@ -48,10 +48,10 @@
     },
     "devDependencies": {
         "@types/jasmine": "2.5.40",
-        "@types/node": "6.0.54",
+        "@types/node": "6.0.55",
         "@types/source-map": "0.5.0",
         "@types/uglify-js": "2.6.28",
-        "@types/webpack": "2.0.0",
+        "@types/webpack": "2.1.0",
 
         "codelyzer": "2.0.0-beta.4",
         "node-sass": "4.1.1",
@@ -114,7 +114,8 @@
         "build:dll": "webpack --config config/webpack.dll.js --progress",
 
         "server": "npm run server:dev",
-        "server:dev": "webpack-dashboard -- webpack-dev-server --config config/webpack.dev.js",
+        "server:dev": "webpack-dev-server --config config/webpack.dev.js",
+        "server:dev:dash": "webpack-dashboard -- webpack-dev-server --config config/webpack.dev.js",
         "server:dev:hmr": "npm run server:dev -- --hot",
 
         "start": "npm run server",

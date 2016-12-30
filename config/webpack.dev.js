@@ -69,14 +69,6 @@ module.exports = webpackMerge(commonConfig, {
          */
         filename: '[name].bundle.js',
 
-        /**
-         * The filename of the SourceMaps for the JavaScript files.
-         * They are inside the output.path directory.
-         *
-         * See: http://webpack.github.io/docs/configuration.html#output-sourcemapfilename
-         */
-        sourceMapFilename: '[name].bundle.map',
-
         /** The filename of non-entry chunks as relative path
          * inside the output.path directory.
          *
@@ -89,6 +81,7 @@ module.exports = webpackMerge(commonConfig, {
 
         new ProgressPlugin(),
         new DashboardPlugin(),
+        new webpack.optimize.UglifyJsPlugin(),
 
         new webpack.DllReferencePlugin({
             context: '.',
