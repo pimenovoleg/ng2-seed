@@ -69,6 +69,7 @@ module.exports = {
          */
         extensions: ['.ts', '.js'],
 
+        // An array of directory names to be resolved to the current directory
         modules: [nodeModules, helpers.root('src')]
     },
 
@@ -82,8 +83,19 @@ module.exports = {
         rules: [
             {enforce: 'pre', test: /\.js$/, loader: 'source-map-loader', exclude: [ nodeModules ]},
 
+            /*
+             * Json loader support for *.json files.
+             *
+             * See: https://github.com/webpack/json-loader
+             */
             {test: /\.json$/, use: 'json-loader'},
             {test: /\.(jpg|png|gif)$/, use: 'url-loader?limit=10000'},
+
+            /* Raw loader support for *.html
+             * Returns file content as string
+             *
+             * See: https://github.com/webpack/raw-loader
+             */
             {test: /\.html$/, use: 'raw-loader', exclude: [ helpers.root('src/index.html') ]},
             {test: /\.(otf|ttf|woff|woff2)$/, use: 'url-loader?limit=10000'},
             {test: /\.(eot|svg)$/, use: 'file-loader'},
@@ -112,38 +124,29 @@ module.exports = {
              * Returns file content as string
              *
              */
+            { test: /\.css$/, loader:'to-string-loader!css-loader', include: [ helpers.root('src', 'app') ] },
             {
                 test: /\.css$/,
-                include: [
-                    helpers.root('src', 'app')
-                ],
-                loader:'to-string-loader!css-loader'
-            },
-
-            {
-                test: /\.css$/,
+                loader: ExtractTextPlugin.extract({fallbackLoader:'style-loader',loader:'css-loader'}),
                 exclude: [
                     helpers.root('src', 'app')
-                ],
-                loader: ExtractTextPlugin.extract({fallbackLoader:'style-loader',loader:'css-loader'})
+                ]
             },
 
             {
                 test: /\.scss$/,
+                loader: ExtractTextPlugin.extract({fallbackLoader:'style-loader',loader:'css-loader!sass-loader'}),
                 exclude: [
                     helpers.root('src', 'app')
-                ],
-                loader: ExtractTextPlugin.extract({fallbackLoader:'style-loader',loader:'css-loader!sass-loader'})
+                ]
             },
             {
                 test: /\.scss$/,
+                loader:'to-string-loader!css-loader!sass-loader',
                 include: [
                     helpers.root('src', 'app')
-                ],
-                loader:'to-string-loader!css-loader!sass-loader'
+                ]
             }
-
-
         ].concat(extraRules)
     },
 
@@ -165,7 +168,7 @@ module.exports = {
         new ContextReplacementPlugin(
             // The (\\|\/) piece accounts for path separators in *nix and Windows
             /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
-            helpers.root('./src') // location of your src
+            helpers.root('./src')
         ),
 
         /*
