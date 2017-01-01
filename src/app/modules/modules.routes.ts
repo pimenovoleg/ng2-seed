@@ -8,7 +8,7 @@ const ROUTES: Routes = [
         path: '', component: PagesComponent,
         children: [
             { path: '', component: PagesComponent, redirectTo: 'heroes' },
-            { path: 'heroes', loadChildren: './pages/heroes/heroes.module#HeroesModule?chunkName=HeroesModule' }
+            { path: 'heroes', loadChildren: './pages/heroes/heroes.module#HeroesModule?chunkName=Heroes' }
         ]
     }
 ];

@@ -74,14 +74,16 @@ module.exports = webpackMerge(commonConfig, {
          *
          * See: http://webpack.github.io/docs/configuration.html#output-chunkfilename
          */
-        chunkFilename: '[name].chunk.js'
+         chunkFilename: '[name].chunk.js'
     },
 
     plugins: [
 
         new ProgressPlugin(),
         new DashboardPlugin(),
-        new webpack.optimize.UglifyJsPlugin(),
+        new webpack.optimize.UglifyJsPlugin({
+            sourceMap: true
+        }),
 
         new webpack.DllReferencePlugin({
             context: '.',
