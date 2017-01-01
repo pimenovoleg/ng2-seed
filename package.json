@@ -39,7 +39,7 @@
         "core-js": "2.4.1",
         "ie-shim": "0.1.0",
 
-        "lodash": "4.17.3",
+        "lodash": "4.17.4",
         "normalize.css": "5.0.0",
         "zone.js": "0.7.4",
 

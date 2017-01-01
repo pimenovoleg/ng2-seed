@@ -1,24 +1,9 @@
-import { Component } from '@angular/core';
-
-import './app.main.scss';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
     selector: 'app',
     template: require('./app.component.html'),
-    styles: [],
+    encapsulation: ViewEncapsulation.None, // set global styles
+    styles: [ require('./app.main.scss') ]
 })
-export class AppComponent {
-    showSidenav$: boolean;
-
-    constructor() {
-        this.showSidenav$ = false;
-    }
-
-    closeSidenav() {
-        this.showSidenav$ = false;
-    }
-
-    openSidenav() {
-        this.showSidenav$ = true;
-    }
-}
+export class AppComponent { }

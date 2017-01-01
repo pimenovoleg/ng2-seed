@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 
-import { type } from '../../../common/utils/ngrx.utils';
+import { type } from '../../../../common/utils/ngrx.utils';
 import { Hero } from '../models/Hero';
 
 

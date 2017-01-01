@@ -1,0 +1,8 @@
+<md-sidenav-layout fullscreen>
+    <mc-sidenav [open]="showSidenav$">
+    </mc-sidenav>
+    <mc-header (openMenu)="openSidenav()">
+        Marvel Interactive
+    </mc-header>
+    <router-outlet></router-outlet>
+</md-sidenav-layout>

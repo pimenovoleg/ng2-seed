@@ -24,3 +24,7 @@ Pull requests and stars are always welcome. For bugs and feature requests, [plea
 
 [license-url]: https://github.com/Fost/ng2-seed/blob/master/LICENSE.md
 [license-img]: https://img.shields.io/badge/license-MIT-blue.svg
+
+
+Waiting resolve issue:
+https://youtrack.jetbrains.com/issue/WEB-19481

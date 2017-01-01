@@ -7,23 +7,16 @@
         "experimentalDecorators": true,
         "allowSyntheticDefaultImports": true,
         "sourceMap": true,
-        "noEmit": true,
-        "noEmitHelpers": true,
         "baseUrl": "./src",
+        "declaration": false,
+        "noImplicitAny": false,
         "paths": {},
         "lib": [
             "dom",
             "es6"
-        ],
-        "types": [
-            "node",
-            "source-map",
-            "uglify-js",
-            "webpack"
         ]
     },
     "awesomeTypescriptLoaderOptions": {
-        "forkChecker": true,
         "useWebpackText": true
     },
     "exclude": [

@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 import { Store } from '@ngrx/store';
 
-import * as appRoot from '../../app.reducer';
+import * as appRoot from '../../../app.reducer';
 import * as hero from './ngrx/heroes.actions';
-import {Observable} from "rxjs";
+
 
 @Component({
     selector: 'heroes',
-    template: require('./heroes.tpl.html')
+    template: require('./heroes.component.html')
 })
 export class HeroesComponent implements OnInit {
 
@@ -18,8 +19,8 @@ export class HeroesComponent implements OnInit {
 
     ngOnInit() {
 
-        this.heroes$ = this.store.select('heroes');
+        // this.heroes$ = this.store.select('heroes');
 
-        this.store.dispatch(new hero.LoadHeroesAction());
+        // this.store.dispatch(new hero.LoadHeroesAction());
     }
 }

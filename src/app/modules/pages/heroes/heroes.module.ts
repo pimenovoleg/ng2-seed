@@ -6,14 +6,15 @@ import { HeroesServices } from './services/heroes.services';
 import { HeroEffects } from './ngrx/heroes.effects';
 
 import { HeroesComponent } from './heroes.component';
-import { BrowserModule } from '@angular/platform-browser';
+import { ROUTING } from './heroes.routes';
 
 @NgModule({
     declarations: [
         HeroesComponent
     ],
     imports: [
-        BrowserModule,
+        ROUTING,
+
         EffectsModule.run(HeroEffects)
     ],
     providers: [

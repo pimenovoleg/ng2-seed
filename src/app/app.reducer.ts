@@ -1,7 +1,7 @@
 import { ActionReducer } from '@ngrx/store';
 import { combineReducers } from '@ngrx/store';
 
-import * as heroes from './modules/heroes/ngrx/heroes.reducer';
+import * as heroes from './modules/pages/heroes/ngrx/heroes.reducer';
 
 export interface State {
     heroes: heroes.State;

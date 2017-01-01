@@ -1,15 +1,9 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule }  from '@angular/router';
 
-import { HeroesComponent } from './modules/heroes/heroes.component';
-
-
 const ROUTES: Routes = [
-    {
-        path: '',
-        // loadChildren: './modules/heroes/heroes.module#HeroesModule?chunkName=HeroesModule'
-        component: HeroesComponent
-    }
+    // { path: '', redirectTo: '/home', pathMatch: 'full' },
+    { path: '', loadChildren: './modules/modules.module#PagesModule?chunkName=Modules' }
 ];
 
 const ROUTER_CONFIG = { useHash: true };
