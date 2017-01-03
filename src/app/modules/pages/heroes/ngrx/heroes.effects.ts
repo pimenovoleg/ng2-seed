@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Effect, Actions } from '@ngrx/effects';
 
-import * as hero from './heroes.actions';
+import { HeroActions } from './heroes.actions';
 
 import { HeroesServices } from '../services/heroes.services';
 
@@ -11,7 +11,7 @@ export class HeroEffects {
 
     @Effect()
     loadHeroes$ = this.actions$
-        .ofType(hero.ACTION_TYPES.LOAD)
+        .ofType(HeroActions.LOAD)
         .switchMap(() => this.heroesService.getHeroes())
-        .map(heroes => new hero.LoadHeroesCompleteAction(heroes));
+        .map(heroes => new HeroActions().loadHeroesCompleteAction(heroes));
 }

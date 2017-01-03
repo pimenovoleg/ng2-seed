@@ -1,27 +1,23 @@
+import { Injectable } from '@angular/core';
+
 import { Action } from '@ngrx/store';
 
-import { type } from '../../../../common/utils/ngrx.utils';
-import { Hero } from '../models/Hero';
+@Injectable()
+export class HeroActions {
+    static LOAD =          '[Hero] Load ';
+    static LOAD_COMPLETE = '[Hero] Load Complete';
 
+    loadHeroesAction(): Action {
+        return {
+            type: HeroActions.LOAD,
+            payload: 'run'
+        };
+    }
 
-export const ACTION_TYPES = {
-    LOAD:             type('[Hero] Load'),
-    LOAD_COMPLETE:    type('[Hero] Load Complete'),
-    SELECT:           type('[Hero] Select')
-};
-
-export class LoadHeroesAction implements Action {
-    type = ACTION_TYPES.LOAD;
-
-    constructor() { }
+    loadHeroesCompleteAction(data): Action {
+        return {
+            type: HeroActions.LOAD_COMPLETE,
+            payload: data
+        };
+    }
 }
-
-export class LoadHeroesCompleteAction implements Action {
-    type = ACTION_TYPES.LOAD_COMPLETE;
-
-    constructor(public payload: any) { }
-}
-
-export type actions
-    = LoadHeroesAction
-    | LoadHeroesCompleteAction;

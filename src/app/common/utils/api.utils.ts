@@ -1,13 +1,13 @@
-const md5 = require('md5/md5');
+import { Md5 } from 'ts-md5/dist/md5';
 
 function timestamp() {
-    return Math.floor(Date.now() / 1000);
+    return Date.now();
 }
 
 function createHash(ts, privkey, pubkey) {
     const preHash = ts + privkey + pubkey;
 
-    return md5(preHash);
+    return Md5.hashStr(preHash);
 }
 
 function formatResponse(body) {

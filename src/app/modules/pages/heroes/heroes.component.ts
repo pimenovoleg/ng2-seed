@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 
 import * as appRoot from '../../../app.reducer';
-import * as hero from './ngrx/heroes.actions';
+import { HeroActions } from './ngrx/heroes.actions';
 
 
 @Component({
@@ -21,6 +21,6 @@ export class HeroesComponent implements OnInit {
 
         // this.heroes$ = this.store.select('heroes');
 
-        // this.store.dispatch(new hero.LoadHeroesAction());
+        // this.store.dispatch(new HeroActions().loadHeroesAction());
     }
 }
