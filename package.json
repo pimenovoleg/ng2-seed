@@ -55,6 +55,7 @@
 
         "codelyzer": "2.0.0-beta.4",
         "node-sass": "4.1.1",
+        "sass-lint": "1.10.2",
         "rimraf": "2.5.4",
 
         "es6-promise": "4.0.5",
