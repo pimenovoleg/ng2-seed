@@ -4,7 +4,6 @@ import { Hero } from '../models/Hero';
 
 import { HeroActions } from './heroes.actions';
 
-
 export interface State {
     ids: string[];
     entities: { [id: string]: Hero };

@@ -10,7 +10,6 @@ const commonConfig = require('./webpack.common.js');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 const NormalModuleReplacementPlugin = require('webpack/lib/NormalModuleReplacementPlugin');
 const IgnorePlugin = require('webpack/lib/IgnorePlugin');
-const DedupePlugin = require('webpack/lib/optimize/DedupePlugin');
 const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
 
@@ -91,16 +90,6 @@ module.exports = webpackMerge(commonConfig, {
          * See: https://www.npmjs.com/package/webpack-md5-hash
          */
         new WebpackMd5Hash(),
-
-        /**
-         * Plugin: DedupePlugin
-         * Description: Prevents the inclusion of duplicate code into your bundle
-         * and instead applies a copy of the function at runtime.
-         *
-         * See: https://webpack.github.io/docs/list-of-plugins.html#defineplugin
-         * See: https://github.com/webpack/docs/wiki/optimization#deduplication
-         */
-        new DedupePlugin(),
 
         /**
          * Plugin: DefinePlugin
