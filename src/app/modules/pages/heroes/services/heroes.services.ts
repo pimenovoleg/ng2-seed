@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http, URLSearchParams, RequestOptions } from '@angular/http';
 
+import { Observable } from 'rxjs/Observable';
+
 import { createHash, timestamp } from '../../../../common/utils/api.utils';
 
 @Injectable()
@@ -13,7 +15,7 @@ export class HeroesServices {
 
     constructor(private http: Http) {}
 
-    getHeroes() {
+    getHeroes(): Observable<any> {
         const ts = timestamp();
         const hash = createHash(ts, this.API_PRIVATE_KEY, this.API_PUBLIC_KEY);
 
@@ -23,6 +25,7 @@ export class HeroesServices {
         search.set('apikey', this.API_PUBLIC_KEY);
         search.set('hash', String(hash));
 
-        return this.http.get(this.API_URL, new RequestOptions({search}));
+        return this.http.get(this.API_URL, new RequestOptions({search}))
+            .map((res) => res.json().items || []);
     }
 }

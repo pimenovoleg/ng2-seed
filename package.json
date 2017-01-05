@@ -48,7 +48,7 @@
     },
     "devDependencies": {
         "@types/jasmine": "2.5.40",
-        "@types/node": "6.0.56",
+        "@types/node": "6.0.57",
         "@types/source-map": "0.5.0",
         "@types/uglify-js": "2.6.28",
         "@types/webpack": "2.1.0",
@@ -98,7 +98,7 @@
         "webpack": "2.2.0-rc.3",
         "webpack-dev-server": "2.2.0-rc.0",
         "webpack-md5-hash": "0.0.5",
-        "webpack-merge": "2.0.0",
+        "webpack-merge": "2.2.0",
         "webpack-dashboard": "0.2.1"
     },
     "scripts": {

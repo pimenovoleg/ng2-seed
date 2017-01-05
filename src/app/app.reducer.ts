@@ -1,14 +1,14 @@
 import { ActionReducer } from '@ngrx/store';
 import { combineReducers } from '@ngrx/store';
 
-import * as heroes from './modules/pages/heroes/ngrx/heroes.reducer';
+import * as fromHeroes from './modules/pages/heroes/ngrx/heroes.reducer';
 
 export interface State {
-    heroes: heroes.State;
+    heroes: fromHeroes.State;
 }
 
 const reducers = {
-    heroes: heroes.reducer
+    heroes: fromHeroes.reducer
 };
 
 const productionReducer: ActionReducer<State> = combineReducers(reducers);

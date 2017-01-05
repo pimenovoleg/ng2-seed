@@ -1,8 +1,7 @@
-import { ActionReducer, Action } from '@ngrx/store';
 
 import { Hero } from '../models/Hero';
 
-import { HeroActions } from './heroes.actions';
+import * as hero from '../ngrx/heroes.actions';
 
 export interface State {
     ids: string[];
@@ -14,9 +13,9 @@ const initialState: State = {
     entities: {}
 };
 
-export function reducer(state = initialState, action: Action): State {
+export function reducer(state = initialState, action: hero.Actions): State {
     switch (action.type) {
-        case HeroActions.LOAD_COMPLETE: {
+        case hero.ActionTypes.LOAD_COMPLETE: {
 
             return Object.assign({}, state, {
                 ids: [ ...state.ids],
