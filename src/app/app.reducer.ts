@@ -1,19 +1,10 @@
 import { ActionReducer } from '@ngrx/store';
 import { combineReducers } from '@ngrx/store';
 
-import * as fromHeroes from './modules/pages/heroes/ngrx/heroes.reducer';
+export interface AppState { }
 
-export interface State {
-    heroes: fromHeroes.State;
-}
-
-const reducers = {
-    heroes: fromHeroes.reducer
+export const createReducer = (asyncReducers = {}): ActionReducer<any> => {
+    return combineReducers(Object.assign({ }, asyncReducers));
 };
 
-const productionReducer: ActionReducer<State> = combineReducers(reducers);
-
-export function reducer(state: any, action: any) {
-
-    return productionReducer(state, action);
-}
+export const appReducer = createReducer();

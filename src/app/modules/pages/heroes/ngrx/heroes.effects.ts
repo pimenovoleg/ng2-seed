@@ -17,6 +17,8 @@ export class HeroEffects {
         .ofType(hero.ActionTypes.LOADING)
         .switchMap(() => {
             return this.heroesService.getHeroes()
-                .map((heroes) => new hero.LoadCompleteAction(heroes));
+                .map((heroes) => {
+                    return new hero.LoadCompleteAction(heroes);
+                });
         });
 }

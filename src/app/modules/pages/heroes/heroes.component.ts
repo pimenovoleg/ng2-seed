@@ -3,8 +3,8 @@ import { Observable } from 'rxjs';
 
 import { Store } from '@ngrx/store';
 
-import * as fromRoot from '../../../app.reducer';
 import * as hero from './ngrx/heroes.actions';
+import { AppStateWithHeroes, appReducerWithHeroes } from './ngrx/heroes.reducer';
 
 @Component({
     selector: 'heroes',
@@ -14,7 +14,9 @@ export class HeroesComponent implements OnInit {
 
     public heroes$: Observable<any>;
 
-    constructor(private store: Store<fromRoot.State>) { }
+    constructor(private store: Store<AppStateWithHeroes>) {
+        store.replaceReducer(appReducerWithHeroes);
+    }
 
     ngOnInit() {
         // this.heroes$ = this.store.select('heroes');

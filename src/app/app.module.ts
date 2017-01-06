@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
 
 import { MaterialModule } from '@angular/material';
 
 import { StoreModule } from '@ngrx/store';
 
-import { reducer } from './app.reducer';
+import { appReducer } from './app.reducer';
 import { AppComponent } from './app.component';
 import { ROUTING } from './app.routes';
+
 
 @NgModule({
     declarations: [
@@ -15,10 +17,11 @@ import { ROUTING } from './app.routes';
     ],
     imports: [
         BrowserModule,
+        HttpModule,
         MaterialModule.forRoot(),
         ROUTING,
 
-        StoreModule.provideStore(reducer),
+        StoreModule.provideStore(appReducer),
     ],
     bootstrap: [AppComponent]
 })

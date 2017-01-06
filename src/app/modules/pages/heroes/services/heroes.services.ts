@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, URLSearchParams, RequestOptions } from '@angular/http';
+import {Http, URLSearchParams, RequestOptions, Response} from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 
@@ -26,6 +26,11 @@ export class HeroesServices {
         search.set('hash', String(hash));
 
         return this.http.get(this.API_URL, new RequestOptions({search}))
-            .map((res) => res.json().items || []);
+            .map(this.extractData);
+    }
+
+    private extractData(res: Response) {
+        let body = res.json();
+        return body.data || [];
     }
 }
