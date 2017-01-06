@@ -12,17 +12,21 @@ import '@angular/router';
 import '@angular/material';
 
 // RxJS
+
+// Statics
+import 'rxjs/add/observable/throw';
+
+// Operators
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/distinctUntilChanged';
 
 // ngrx
 import '@ngrx/core';
 import '@ngrx/store';
 
 // Web dependencies
-import 'lodash';
-
-import 'md5';
+import 'ts-md5';
