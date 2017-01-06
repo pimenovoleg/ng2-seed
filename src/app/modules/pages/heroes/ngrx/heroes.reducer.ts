@@ -6,11 +6,13 @@ import { createReducer, AppState } from '../../../../app.reducer';
 export interface HeroesState {
     ids: string[];
     entities: { [id: string]: Hero };
+    loading: boolean;
 }
 
 const initialState: HeroesState = {
     ids: [],
-    entities: {}
+    entities: {},
+    loading: false
 };
 
 export function reducer(state = initialState, action: hero.Actions): HeroesState {
@@ -22,6 +24,12 @@ export function reducer(state = initialState, action: hero.Actions): HeroesState
             return Object.assign({}, state, {
                 ids: [ ...state.ids],
                 entities: Object.assign({}, state.entities)
+            });
+        }
+
+        case hero.ActionTypes.LOADING: {
+            return Object.assign({}, state, {
+                loading: true
             });
         }
 

@@ -5,11 +5,11 @@ import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 
 import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { appReducer } from './app.reducer';
 import { AppComponent } from './app.component';
 import { ROUTING } from './app.routes';
-
 
 @NgModule({
     declarations: [
@@ -22,6 +22,7 @@ import { ROUTING } from './app.routes';
         ROUTING,
 
         StoreModule.provideStore(appReducer),
+        StoreDevtoolsModule.instrumentOnlyWithExtension()
     ],
     bootstrap: [AppComponent]
 })
