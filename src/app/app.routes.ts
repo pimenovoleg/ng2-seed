@@ -9,4 +9,3 @@ const ROUTES: Routes = [
 const ROUTER_CONFIG = { useHash: true, preloadingStrategy: NoPreloading };
 
 export const ROUTING: ModuleWithProviders = RouterModule.forRoot(ROUTES, ROUTER_CONFIG);
-

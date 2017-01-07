@@ -23,7 +23,8 @@ export function reducer(state = initialState, action: hero.Actions): HeroesState
 
             return Object.assign({}, state, {
                 ids: [ ...state.ids],
-                entities: Object.assign({}, state.entities)
+                entities: Object.assign({}, state.entities),
+                loading: false
             });
         }
 
@@ -44,4 +45,3 @@ export interface AppStateWithHeroes extends AppState {
 }
 
 export const appReducerWithHeroes = createReducer({ heroes: reducer });
-

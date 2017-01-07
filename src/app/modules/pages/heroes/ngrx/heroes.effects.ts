@@ -16,10 +16,8 @@ export class HeroEffects {
     loadHeroes$: Observable<Action> = this.actions$
         .ofType(hero.ActionTypes.LOADING)
         .debounceTime(300)
-        .switchMap(() => {
-            return this.heroesService.getHeroes()
-                .map((heroes) => {
-                    return new hero.LoadCompleteAction(heroes);
-                });
-        });
+        .switchMap(() =>
+            this.heroesService.getHeroes()
+                .map((heroes) => new hero.LoadCompleteAction(heroes))
+        );
 }
