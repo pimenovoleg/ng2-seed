@@ -9,9 +9,9 @@
 npm i
 ```
 
-## Run
+## Run (dev-server)
 ```
-npm run server:dev
+npm start
 ```
 
 ## Contributing
@@ -27,8 +27,10 @@ Pull requests and stars are always welcome. For bugs and feature requests, [plea
 
 
 Waiting resolve issue:
+
 https://youtrack.jetbrains.com/issue/WEB-19481
 https://github.com/angular/angular/issues/12869
 
 Waiting PR (not bugs):
-https://github.com/ngrx/store/pull/269
+
+https://github.com/ngrx/store/pull/269 (https://github.com/angular/angular/pull/13593)
