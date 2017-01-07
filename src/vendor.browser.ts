@@ -29,4 +29,4 @@ import '@ngrx/core';
 import '@ngrx/store';
 
 // Web dependencies
-import 'ts-md5';
+import 'ts-md5/dist/md5';
