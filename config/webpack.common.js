@@ -10,6 +10,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+const ngcWebpack = require('ngc-webpack');
 
 const ProvidePlugin = require('webpack/lib/ProvidePlugin');
 const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
@@ -27,6 +28,9 @@ const appConfig = {
     environments: '',
     outDir: 'dist'
 };
+
+const HMR = helpers.hasProcessFlag('hot');
+const AOT = helpers.hasNpmFlag('aot');
 
 const appMain = helpers.root(appConfig.root, appConfig.main);
 const nodeModules = helpers.root('node_modules');
@@ -70,7 +74,7 @@ module.exports = {
          *
          * See: http://webpack.github.io/docs/configuration.html#resolve-extensions
          */
-        extensions: ['.ts', '.js'],
+        extensions: ['.ts', '.js', 'json'],
 
         // An array of directory names to be resolved to the current directory
         modules: [nodeModules, helpers.root('src')]
@@ -103,14 +107,23 @@ module.exports = {
             {test: /\.(otf|ttf|woff|woff2)$/, use: 'url-loader?limit=10000'},
             {test: /\.(eot|svg)$/, use: 'file-loader'},
 
+            /*
+             * Typescript loader support for .ts and Angular 2 async routes via .async.ts
+             * Replace templateUrl and stylesUrl with require()
+             *
+             * See: https://github.com/s-panferov/awesome-typescript-loader
+             */
             {
                 test: /\.ts$/,
-                use: 'awesome-typescript-loader?forkChecker=true',
+                use: 'awesome-typescript-loader?{configFileName: "tsconfig.json"}',
                 exclude: [
                     /\.(spec|e2e)\.ts$/
                 ]
             },
 
+            /*
+             * See: https://github.com/TheLarkInn/angular2-template-loader
+             */
             {
                 test: /\.ts$/,
                 use: [
@@ -136,6 +149,11 @@ module.exports = {
                 ]
             },
 
+            /*
+             * to string and sass loader support for *.scss files (from Angular components)
+             * Returns compiled css content as string
+             *
+             */
             {
                 test: /\.scss$/,
                 loader: ExtractTextPlugin.extract({fallbackLoader:'style-loader',loader:'css-loader!sass-loader'}),
@@ -238,6 +256,11 @@ module.exports = {
          */
         new HtmlElementsPlugin({
             headTags: require('./head-config.common')
+        }),
+
+        new ngcWebpack.NgcWebpackPlugin({
+            disabled: !AOT,
+            tsConfig: helpers.root('tsconfig.webpack.json')
         })
     ].concat(extraPlugins),
 };

@@ -8,13 +8,14 @@ export const ActionTypes = {
 };
 
 export class LoadingAction implements Action {
-    type = ActionTypes.LOADING;
+    public type = ActionTypes.LOADING;
 
     constructor(public payload: boolean) {}
 }
 
 export class LoadCompleteAction implements Action {
-    type = ActionTypes.LOAD_COMPLETE;
+
+    public type = ActionTypes.LOAD_COMPLETE;
 
     constructor(public payload: any) {}
 }
