@@ -9,7 +9,7 @@
         // Custom
         "trailing-comma": [false, {"multiline": "always", "singleline": "never"}],
         "max-classes-per-file": [ true, 5 ],
-        "no-unused-variable": true,
+        "interface-name": [false, "always-prefix"],
 
         // Angular 2
         "component-class-suffix": true,

@@ -14,7 +14,6 @@ export class LoadingAction implements Action {
 }
 
 export class LoadCompleteAction implements Action {
-
     public type = ActionTypes.LOAD_COMPLETE;
 
     constructor(public payload: any) {}
