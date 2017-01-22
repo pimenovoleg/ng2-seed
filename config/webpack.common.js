@@ -10,12 +10,10 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
-const ngcWebpack = require('ngc-webpack');
 
 const ProvidePlugin = require('webpack/lib/ProvidePlugin');
 const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
 const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
-
 
 const METADATA = {
     title: 'Angular2 seed',
@@ -256,11 +254,6 @@ module.exports = {
          */
         new HtmlElementsPlugin({
             headTags: require('./head-config.common')
-        }),
-
-        new ngcWebpack.NgcWebpackPlugin({
-            disabled: !AOT,
-            tsConfig: helpers.root('tsconfig.webpack.json')
         })
     ].concat(extraPlugins),
 };

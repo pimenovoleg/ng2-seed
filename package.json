@@ -98,8 +98,7 @@
         "webpack-dev-server": "2.2.0",
         "webpack-md5-hash": "0.0.5",
         "webpack-merge": "2.4.0",
-        "webpack-dashboard": "0.2.1",
-        "ngc-webpack": "1.1.2"
+        "webpack-dashboard": "0.2.1"
     },
     "scripts": {
         "test": "karma start",
