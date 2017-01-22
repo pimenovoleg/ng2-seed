@@ -1,9 +1,10 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
-    selector: 'mc-header',
+    selector: 'pt-header',
     template: require('./header.html')
 })
 export class HeaderComponent {
-    @Output() openMenu = new EventEmitter();
+    @Output()
+    public openMenu = new EventEmitter();
 }

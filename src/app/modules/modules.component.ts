@@ -1,21 +1,21 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'pages',
+    selector: 'pt-pages',
     template: require('./modules.component.html')
 })
 export class PagesComponent {
-    showSidenav$: boolean;
+    public showSidenav$: boolean;
 
     constructor() {
         this.showSidenav$ = false;
     }
 
-    closeSidenav() {
+    public closeSidenav() {
         this.showSidenav$ = false;
     }
 
-    openSidenav() {
+    public openSidenav() {
         this.showSidenav$ = true;
     }
 }

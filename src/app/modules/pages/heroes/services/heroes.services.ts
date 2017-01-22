@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Http, URLSearchParams, RequestOptions, Response} from '@angular/http';
+import { Http, URLSearchParams, RequestOptions, Response } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 
@@ -15,7 +15,7 @@ export class HeroesServices {
 
     constructor(private http: Http) {}
 
-    getHeroes(): Observable<any> {
+    public getHeroes(): Observable<any> {
         const ts = timestamp();
         const hash = createHash(ts, this.API_PRIVATE_KEY, this.API_PUBLIC_KEY);
 

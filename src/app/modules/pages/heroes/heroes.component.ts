@@ -7,7 +7,7 @@ import * as hero from './ngrx/heroes.actions';
 import { AppStateWithHeroes, appReducerWithHeroes } from './ngrx/heroes.reducer';
 
 @Component({
-    selector: 'heroes',
+    selector: 'pt-heroes',
     template: require('./heroes.component.html')
 })
 export class HeroesComponent implements OnInit {
@@ -18,7 +18,7 @@ export class HeroesComponent implements OnInit {
         store.replaceReducer(appReducerWithHeroes);
     }
 
-    ngOnInit() {
+    public ngOnInit() {
         // this.heroes$ = this.store.select('heroes');
 
         this.store.dispatch(new hero.LoadingAction(true));

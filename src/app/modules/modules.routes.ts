@@ -14,4 +14,3 @@ const ROUTES: Routes = [
 ];
 
 export const ROUTING: ModuleWithProviders = RouterModule.forChild(ROUTES);
-

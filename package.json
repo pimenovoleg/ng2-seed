@@ -1,14 +1,17 @@
 {
-    "name": "NG2-Seed",
+    "name": "ng2seed",
     "version": "0.0.3",
-    "description": "NG2-UI application",
-    "author": "OlegPi",
+    "description": "Angular 2 seed application",
+    "author": "Oleg",
     "homepage": "http://frontblogger.ru",
     "license": "MIT",
     "keywords": [
       "angular",
       "angular2",
-      "webpack2"
+      "webpack2",
+      "ngrx",
+      "ngrx@effects",
+      "rxjs"
     ],
     "contributors": [
       "pi_men"

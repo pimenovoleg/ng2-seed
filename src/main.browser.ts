@@ -12,7 +12,7 @@ import { AppModule } from './app/app.module';
 export function main(): Promise<any> {
     return platformBrowserDynamic()
         .bootstrapModule(AppModule)
-        .catch(err => console.error(err));
+        .catch((err) => console.error(err));
 }
 
 function bootLoader(main) {
