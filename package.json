@@ -34,7 +34,7 @@
         "@ngrx/store": "2.2.1",
         "@ngrx/store-devtools": "3.2.3",
 
-        "rxjs": "5.1.0",
+        "rxjs": "5.1.1",
 
         "jquery": "3.1.1",
 
@@ -72,7 +72,7 @@
 
         "angular-router-loader": "0.5.0",
         "angular2-template-loader": "0.6.2",
-        "awesome-typescript-loader": "3.0.4-rc.1",
+        "awesome-typescript-loader": "3.0.4-rc.2",
         "exports-loader": "0.6.3",
         "expose-loader": "0.7.1",
         "file-loader": "0.10.0",
@@ -80,13 +80,13 @@
         "json-loader": "0.5.4",
         "raw-loader": "0.5.1",
         "css-loader": "0.26.1",
-        "sass-loader": "5.0.1",
+        "sass-loader": "6.0.0",
         "style-loader": "0.13.1",
         "source-map-loader": "0.1.6",
         "resolve-url-loader": "1.6.1",
         "string-replace-loader": "1.0.5",
         "url-loader": "0.5.7",
-        "tslint-loader": "3.3.0",
+        "tslint-loader": "3.4.2",
         "to-string-loader": "1.1.5",
 
         "ts-helpers": "1.1.2",
