@@ -1,8 +1,9 @@
+[![CircleCI](https://circleci.com/gh/angular/angular/tree/master.svg?style=shield)](https://circleci.com/gh/angular/angular/tree/master)
+[![dependency status][david-img]][david-url]
+
 # [ng2-seed][author-www-url] [![The MIT License][license-img]][license-url] 
 
 > Example page: http://localhost:3000
-
-[![dependency status][david-img]][david-url]
 
 ## Install
 ```
