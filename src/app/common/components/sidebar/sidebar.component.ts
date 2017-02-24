@@ -2,8 +2,8 @@ import { Component, Input } from '@angular/core';
 
 @Component({
     selector: 'pt-sidenav',
-    styleUrls: [ './sidebar.scss' ],
-    templateUrl: './sidebar.tpl.html'
+    templateUrl: './sidebar.tpl.html',
+    styleUrls: [ './sidebar.scss' ]
 })
 export class SidenavComponent {
     @Input()

@@ -5,6 +5,7 @@ const helpers = require('./helpers');
 const commonConfig = require('./webpack.common.js');
 
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 /**
  * Webpack Plugins
@@ -77,34 +78,8 @@ module.exports = webpackMerge(commonConfig, {
          chunkFilename: '[name].chunk.js'
     },
 
-    module: {
-        rules: [
-            /*
-            * to string and css loader support for *.css files (from Angular components)
-            * Returns file content as string
-            *
-            */
-            {
-                test: /\.css$/,
-                use: ['to-string-loader', 'css-loader'],
-                include: [helpers.root('src')]
-            },
-
-            /*
-            * to string and sass loader support for *.scss files (from Angular components)
-            * Returns compiled css content as string
-            *
-            */
-            {
-                test: /\.scss$/,
-                exclude: /node_modules/,
-                use: ['raw-loader', 'sass-loader'],
-                include: [helpers.root('src')]
-            }
-        ]
-    },
-
     plugins: [
+        new ExtractTextPlugin('[name].css'),
 
         new ProgressPlugin(),
         new DashboardPlugin(),

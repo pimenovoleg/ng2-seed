@@ -9,6 +9,7 @@ const HtmlElementsPlugin = require('./html-elements-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const ProvidePlugin = require('webpack/lib/ProvidePlugin');
 const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
@@ -130,6 +131,49 @@ module.exports = {
                 exclude: [
                     /node_modules/
                 ]
+            },
+
+            /*
+            * to string and sass loader support for *.scss files (from Angular components)
+            * Returns compiled css content as string
+            *
+            */
+            {
+                test: /\.scss$/,
+                exclude: [helpers.root('src', 'app')],
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            query: {
+                                    modules: false,
+                                    sourceMap: true
+                                }
+                        },
+                        {
+                            loader: 'sass-loader',
+                            query: {
+                                sourceMap: true
+                            }
+                        }
+                    ]
+                })
+            },
+
+            {
+                 test: /\.scss$/,
+                 include: [helpers.root('src', 'app')],
+                 use: [{
+                        loader: 'raw-loader'
+                    },
+                    {
+                        loader: 'sass-loader',
+                        query: {
+                            sourceMap: true
+                        }
+                    }
+                ]
             }
         ].concat(extraRules)
     },
@@ -180,7 +224,7 @@ module.exports = {
             title: METADATA.title,
             chunksSortMode: 'dependency',
             metadata: METADATA,
-            inject: 'head'
+            inject: 'body'
         }),
 
         /*

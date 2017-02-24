@@ -47,6 +47,8 @@
         "ts-md5": "1.2.0"
     },
     "devDependencies": {
+        "express": "4.14.1",
+
         "@types/jasmine": "2.5.43",
         "@types/node": "7.0.5",
         "@types/source-map": "0.5.0",
@@ -120,22 +122,26 @@
         "server:dev:dash": "webpack-dashboard -- webpack-dev-server --config config/webpack.dev.js",
         "server:dev:hmr": "npm run server:dev -- --hot",
 
+        "server:prod": "node server.js",
+
         "start": "npm run server",
 
         "docs": "typedoc -- --options typedoc.json --exclude '**/*.spec.ts' ./src/",
         "docs-pages": "wintersmith build -C docs",
         
+        "deploy": "git push origin master && git push heroku master",
+
         "rimraf": "rimraf"
     },
     "repository": {
-    "type": "git",
-    "url": "https://github.com/Fost/ng2-seed.git"
+        "type": "git",
+        "url": "https://github.com/Fost/ng2-seed.git"
     },
     "bugs": {
         "url": "https://github.com/Fost/ng2-seed/issues"
     },
     "engines": {
-        "node": ">= 6.0.0",
-        "npm": ">= 3"
+        "node": "6.9.2",
+        "npm": "3.10.9"
     }
 }
