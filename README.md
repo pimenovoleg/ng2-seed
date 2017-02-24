@@ -34,3 +34,8 @@ Waiting resolve issue:
 Waiting PR (not bugs):
 
 - [ ] https://github.com/ngrx/store/pull/269 `link with` https://github.com/angular/angular/pull/13593
+
+
+## Heroku
+
+- heroku config:set NPM_CONFIG_PRODUCTION=false
