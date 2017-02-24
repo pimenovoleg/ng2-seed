@@ -18,23 +18,13 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
  * Webpack Constants
  */
 const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
-const HOST = process.env.HOST || 'localhost';
-const PORT = process.env.PORT || 8080;
+
 const METADATA = webpackMerge(commonConfig.metadata, {
-    host: HOST,
-    port: PORT,
     ENV: ENV,
     HMR: false
 });
 
 module.exports = webpackMerge(commonConfig, {
-
-    /**
-     * Switch loaders to debug mode.
-     *
-     * See: http://webpack.github.io/docs/configuration.html#debug
-     */
-    debug: false,
 
     /**
      * Developer tool to enhance debugging
@@ -56,7 +46,7 @@ module.exports = webpackMerge(commonConfig, {
          *
          * See: http://webpack.github.io/docs/configuration.html#output-filename
          */
-        filename: '[name].[chunkhash].bundle.js',
+        filename: '[name].bundle.js',
 
         /**
          * The filename of the SourceMaps for the JavaScript files.
@@ -72,7 +62,7 @@ module.exports = webpackMerge(commonConfig, {
          *
          * See: http://webpack.github.io/docs/configuration.html#output-chunkfilename
          */
-        chunkFilename: '[id].[chunkhash].chunk.js'
+        chunkFilename: '[name].chunk.js'
     },
 
      module: {
@@ -113,7 +103,9 @@ module.exports = webpackMerge(commonConfig, {
      */
     plugins: [
 
-        new webpack.NoErrorsPlugin(),
+        new ExtractTextPlugin('[name].[contenthash].css'),
+
+        new webpack.NoEmitOnErrorsPlugin(),
 
         /**
          * Plugin: WebpackMd5Hash
@@ -163,12 +155,12 @@ module.exports = webpackMerge(commonConfig, {
          * See: https://github.com/webpack/compression-webpack-plugin
          */
         //  install compression-webpack-plugin
-        new CompressionPlugin({
-            asset: "[path].gz[query]",
-            algorithm: "gzip",
-            test: /\.js$/,
-            threshold: 10240,
-            minRatio: 0.8
-        })
+        // new CompressionPlugin({
+        //     asset: "[path].gz[query]",
+        //     algorithm: "gzip",
+        //     test: /\.js$/,
+        //     threshold: 10240,
+        //     minRatio: 0.8
+        // })
     ]
 });

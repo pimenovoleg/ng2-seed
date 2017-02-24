@@ -105,12 +105,13 @@
         "test": "karma start",
 
         "clean": "npm cache clean && npm run rimraf -- node_modules doc coverage dist",
+        "clean:dist": "npm run rimraf -- dist",
 
         "lint": "tslint \"src/**/*.ts\"",
 
         "build": "npm run build:dev",
         "build:dev": "webpack --config config/webpack.dev.js",
-        "build:prod": "webpack --config config/webpack.prod.js",
+        "build:prod": "npm run clean:dist && webpack --config config/webpack.prod.js",
 
         "build:dll": "webpack --config config/webpack.dll.js --progress",
 
@@ -122,7 +123,9 @@
         "start": "npm run server",
 
         "docs": "typedoc -- --options typedoc.json --exclude '**/*.spec.ts' ./src/",
-        "docs-pages": "wintersmith build -C docs"
+        "docs-pages": "wintersmith build -C docs",
+        
+        "rimraf": "rimraf"
     },
     "repository": {
     "type": "git",
