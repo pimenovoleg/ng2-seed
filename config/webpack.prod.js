@@ -12,6 +12,8 @@ const NormalModuleReplacementPlugin = require('webpack/lib/NormalModuleReplaceme
 const IgnorePlugin = require('webpack/lib/IgnorePlugin');
 const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
+
+const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 /**
@@ -23,6 +25,16 @@ const METADATA = webpackMerge(commonConfig.metadata, {
     ENV: ENV,
     HMR: false
 });
+
+let polyfillsManifest;
+let vendorManifest;
+
+try {
+    polyfillsManifest = require(helpers.root('dist-dll', 'polyfills-manifest.json'));
+    vendorManifest = require(helpers.root('dist-dll', 'vendor-manifest.json'));
+} catch (e) {
+    throw 'Please rebuild DLL first by running `npm run build:dll`';
+}
 
 module.exports = webpackMerge(commonConfig, {
 
@@ -78,7 +90,7 @@ module.exports = webpackMerge(commonConfig, {
             fallback: 'style-loader',
             use: 'css-loader'
           }),
-          include: [helpers.root('src', 'styles')]
+          include: [helpers.root('src')]
         },
 
         /*
@@ -90,7 +102,7 @@ module.exports = webpackMerge(commonConfig, {
             fallback: 'style-loader',
             use: 'css-loader!sass-loader'
           }),
-          include: [helpers.root('src', 'styles')]
+          include: [helpers.root('src')]
         },
 
       ]
@@ -107,6 +119,20 @@ module.exports = webpackMerge(commonConfig, {
 
         new webpack.NoEmitOnErrorsPlugin(),
 
+        new webpack.DllReferencePlugin({
+            context: '.',
+            manifest: polyfillsManifest
+        }),
+
+        new webpack.DllReferencePlugin({
+            context: '.',
+            manifest: vendorManifest
+        }),
+
+        new AddAssetHtmlPlugin([
+            { filepath: 'dist-dll' + '/polyfills.dll.js', includeSourcemap: false },
+            { filepath: 'dist-dll' + '/vendor.dll.js', includeSourcemap: false }
+        ]),
         /**
          * Plugin: WebpackMd5Hash
          * Description: Plugin to replace a standard webpack chunkhash with md5.

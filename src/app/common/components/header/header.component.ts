@@ -2,7 +2,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'pt-header',
-    template: require('./header.html')
+    templateUrl: './header.html'
 })
 export class HeaderComponent {
     @Output()

@@ -77,6 +77,33 @@ module.exports = webpackMerge(commonConfig, {
          chunkFilename: '[name].chunk.js'
     },
 
+    module: {
+        rules: [
+            /*
+            * to string and css loader support for *.css files (from Angular components)
+            * Returns file content as string
+            *
+            */
+            {
+                test: /\.css$/,
+                use: ['to-string-loader', 'css-loader'],
+                include: [helpers.root('src')]
+            },
+
+            /*
+            * to string and sass loader support for *.scss files (from Angular components)
+            * Returns compiled css content as string
+            *
+            */
+            {
+                test: /\.scss$/,
+                exclude: /node_modules/,
+                use: ['raw-loader', 'sass-loader'],
+                include: [helpers.root('src')]
+            }
+        ]
+    },
+
     plugins: [
 
         new ProgressPlugin(),
