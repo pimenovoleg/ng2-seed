@@ -5,6 +5,14 @@
 
 > Example page: http://localhost:3000
 
+## Concepts
+
+- Redux ( NgRx/Store - with server calls)
+- Smart & dumb components
+- AOT: Ahead-of-Time compilation
+- Advanced routing ( lazy loading, router outlets...)
+
+
 ## Install
 ```
 npm i
