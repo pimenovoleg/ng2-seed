@@ -8,7 +8,6 @@ const HtmlElementsPlugin = require('./html-elements-plugin');
 
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 
 const ProvidePlugin = require('webpack/lib/ProvidePlugin');
@@ -86,7 +85,7 @@ module.exports = {
     module: {
 
         rules: [
-            {enforce: 'pre', test: /\.js$/, loader: 'source-map-loader', exclude: [ nodeModules ]},
+            {enforce: 'pre', test: /\.js$/, use: 'source-map-loader', exclude: [ nodeModules ]},
 
             /*
              * Json loader support for *.json files.
@@ -134,38 +133,26 @@ module.exports = {
             },
 
             /*
-             * to string and css loader support for *.css files
-             * Returns file content as string
-             *
-             */
-            { test: /\.css$/, loader:'to-string-loader!css-loader', include: [ helpers.root('src', 'app') ] },
+            * to string and css loader support for *.css files (from Angular components)
+            * Returns file content as string
+            *
+            */
             {
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract({fallbackLoader:'style-loader',loader:'css-loader'}),
-                exclude: [
-                    helpers.root('src', 'app')
-                ]
+                use: ['to-string-loader', 'css-loader'],
+                exclude: [helpers.root('src', 'styles')]
             },
 
             /*
-             * to string and sass loader support for *.scss files (from Angular components)
-             * Returns compiled css content as string
-             *
-             */
+            * to string and sass loader support for *.scss files (from Angular components)
+            * Returns compiled css content as string
+            *
+            */
             {
                 test: /\.scss$/,
-                loader: ExtractTextPlugin.extract({fallbackLoader:'style-loader',loader:'css-loader!sass-loader'}),
-                exclude: [
-                    helpers.root('src', 'app')
-                ]
+                use: ['to-string-loader', 'css-loader', 'sass-loader'],
+                exclude: [helpers.root('src', 'styles')]
             },
-            {
-                test: /\.scss$/,
-                loader:'to-string-loader!css-loader!sass-loader',
-                include: [
-                    helpers.root('src', 'app')
-                ]
-            }
         ].concat(extraRules)
     },
 
@@ -175,7 +162,6 @@ module.exports = {
      * See: http://webpack.github.io/docs/configuration.html#plugins
      */
     plugins: [
-        new ExtractTextPlugin('[name].css'),
 
         /**
          * Plugin: ContextReplacementPlugin
