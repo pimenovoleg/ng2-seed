@@ -129,7 +129,8 @@
         "docs": "typedoc -- --options typedoc.json --exclude '**/*.spec.ts' ./src/",
         "docs-pages": "wintersmith build -C docs",
         
-        "deploy": "git push origin master && git push heroku master",
+        "heroku:run": "npm run build:dll && npm run build:prod && npm run server:prod",
+        "heroku:deploy": "git push origin master && git push heroku master",
 
         "rimraf": "rimraf"
     },
