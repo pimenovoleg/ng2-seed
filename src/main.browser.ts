@@ -16,11 +16,11 @@ export function main(): Promise<any> {
 }
 
 function bootLoader(main) {
-  if (document.readyState === 'complete') {
-    main();
-  } else {
-    document.addEventListener('DOMContentLoaded', main);
-  }
+    if (document.readyState === 'complete') {
+        main();
+    } else {
+        document.addEventListener('DOMContentLoaded', main);
+    }
 }
 
 bootLoader(main);

@@ -11,6 +11,7 @@ const DefinePlugin = require('webpack/lib/DefinePlugin');
 const NormalModuleReplacementPlugin = require('webpack/lib/NormalModuleReplacementPlugin');
 const IgnorePlugin = require('webpack/lib/IgnorePlugin');
 const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
+const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
 
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
@@ -75,6 +76,32 @@ module.exports = webpackMerge(commonConfig, {
          * See: http://webpack.github.io/docs/configuration.html#output-chunkfilename
          */
         chunkFilename: '[name].chunk.js'
+    },
+
+    module: {
+
+      rules: [
+        {
+            test: /\.scss$/,
+            use: [
+                'raw-loader', 'postcss-loader', 'sass-loader'
+            ],
+            include: [helpers.root('src', 'app')]
+        },
+        /*
+         * Extract and compile SCSS files from .src/styles directory to external CSS file
+         */
+        {
+          test: /\.scss$/,
+          use: ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: 'raw!postcss!sass'
+          }),
+          exclude: [helpers.root('src', 'app')]
+        },
+
+      ]
+
     },
 
     /**
@@ -142,6 +169,12 @@ module.exports = webpackMerge(commonConfig, {
             sourceMap: false
         }),
 
+        new LoaderOptionsPlugin({
+            minimize: true,
+            debug: false,
+            options: {
+            }
+        })
         /**
          * Plugin: CompressionPlugin
          * Description: Prepares compressed versions of assets to serve

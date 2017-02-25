@@ -48,3 +48,5 @@ Waiting PR (not bugs):
 ## Heroku
 
 - heroku config:set NPM_CONFIG_PRODUCTION=false
+- heroku config:set NODEMODULESCACHE=false
+

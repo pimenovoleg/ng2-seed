@@ -5,7 +5,6 @@ const helpers = require('./helpers');
 const commonConfig = require('./webpack.common.js');
 
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 /**
  * Webpack Plugins
@@ -78,8 +77,40 @@ module.exports = webpackMerge(commonConfig, {
          chunkFilename: '[name].chunk.js'
     },
 
+    module: {
+
+      rules: [
+
+        /*
+         * css loader support for *.css files (styles directory only)
+         * Loads external css styles into the DOM, supports HMR
+         *
+         */
+        {
+          test: /\.css$/,
+          use: ['style-loader', 'css-loader'],
+          include: [helpers.root('src')]
+        },
+
+        /*
+         * sass loader support for *.scss files (styles directory only)
+         * Loads external sass styles into the DOM, supports HMR
+         *
+         */
+        {
+          test: /\.scss$/,
+          use: ['style-loader', 'css-loader', 'sass-loader', 'postcss-loader'],
+          include: [helpers.root('src')]
+        }
+      ]
+    },
+
     plugins: [
-        new ExtractTextPlugin('[name].css'),
+        // new ExtractTextPlugin({
+		// 	filename: "css/[name].css?[hash]-[chunkhash]-[contenthash]-[name]",
+		// 	disable: false,
+		// 	allChunks: true
+		// }),
 
         new ProgressPlugin(),
         new DashboardPlugin(),
@@ -144,7 +175,7 @@ module.exports = webpackMerge(commonConfig, {
                     emitErrors: false,
                     failOnHint: false,
                     resourcePath: helpers.root('src')
-                },
+                }
             }
         })
     ],

@@ -40,7 +40,11 @@ module.exports = {
             helpers.root('./src')
         ),
 
-        new webpack.optimize.UglifyJsPlugin(),
+        new webpack.optimize.UglifyJsPlugin({
+            output: {
+                comments: false
+            }
+        }),
 
         new webpack.DllPlugin({
             // The path to the manifest file which maps between
