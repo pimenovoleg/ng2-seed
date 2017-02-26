@@ -80,18 +80,6 @@ module.exports = webpackMerge(commonConfig, {
     module: {
 
       rules: [
-
-        /*
-         * css loader support for *.css files (styles directory only)
-         * Loads external css styles into the DOM, supports HMR
-         *
-         */
-        {
-          test: /\.css$/,
-          use: ['style-loader', 'css-loader'],
-          include: [helpers.root('src')]
-        },
-
         /*
          * sass loader support for *.scss files (styles directory only)
          * Loads external sass styles into the DOM, supports HMR
@@ -99,18 +87,13 @@ module.exports = webpackMerge(commonConfig, {
          */
         {
           test: /\.scss$/,
-          use: ['style-loader', 'css-loader', 'sass-loader', 'postcss-loader'],
-          include: [helpers.root('src')]
+          use: ['raw-loader', 'postcss-loader', 'sass-loader'],
+          exclude: [helpers.root('src', 'styles')]
         }
       ]
     },
 
     plugins: [
-        // new ExtractTextPlugin({
-		// 	filename: "css/[name].css?[hash]-[chunkhash]-[contenthash]-[name]",
-		// 	disable: false,
-		// 	allChunks: true
-		// }),
 
         new ProgressPlugin(),
         new DashboardPlugin(),

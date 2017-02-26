@@ -66,7 +66,6 @@
         "rimraf": "2.6.1",
 
         "es6-promise": "4.0.5",
-        "es6-promise-loader": "1.0.2",
         "es6-shim": "0.35.3",
         "es7-reflect-metadata": "1.6.0",
 
@@ -79,9 +78,7 @@
 
         "angular-router-loader": "0.5.0",
         "angular2-template-loader": "0.6.2",
-        "awesome-typescript-loader": "3.0.7",
-        "exports-loader": "0.6.4",
-        "expose-loader": "0.7.3",
+        "awesome-typescript-loader": "3.0.8",
         "file-loader": "0.10.1",
         "imports-loader": "0.7.1",
         "json-loader": "0.5.4",
@@ -91,8 +88,6 @@
         "sass-loader": "6.0.2",
         "style-loader": "0.13.2",
         "source-map-loader": "0.1.6",
-        "resolve-url-loader": "2.0.0",
-        "string-replace-loader": "1.0.5",
         "url-loader": "0.5.8",
         "tslint-loader": "3.4.2",
         "to-string-loader": "1.1.5",

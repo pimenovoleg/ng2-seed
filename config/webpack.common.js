@@ -130,33 +130,8 @@ module.exports = {
                 exclude: [
                     /node_modules/
                 ]
-            },
-
-            /*
-            * to string and css loader support for *.css files (from Angular components)
-            * Returns file content as string
-            *
-            */
-            {
-                test: /\.css$/,
-                use: [
-                    'to-string-loader', 'css-loader'
-                ],
-                exclude: [helpers.root('src')]
-            },
-
-            /*
-            * to string and sass loader support for *.scss files (from Angular components)
-            * Returns compiled css content as string
-            *
-            */
-            {
-                test: /\.scss$/,
-                use: [
-                    'raw-loader', 'postcss-loader', 'sass-loader'
-                ],
-                exclude: [helpers.root('src')]
             }
+
         ].concat(extraRules)
     },
 
