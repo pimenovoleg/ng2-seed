@@ -7,14 +7,13 @@ import { MaterialModule } from '@angular/material';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
+import { ENV_PROVIDERS } from './environment';
+
 import { appReducer } from './app.reducer';
 import { AppComponent } from './app.component';
 import { ROUTING } from './app.routes';
 
 @NgModule({
-    declarations: [
-        AppComponent
-    ],
     imports: [
         BrowserModule,
         HttpModule,
@@ -23,6 +22,12 @@ import { ROUTING } from './app.routes';
 
         StoreModule.provideStore(appReducer),
         StoreDevtoolsModule.instrumentOnlyWithExtension()
+    ],
+    providers: [
+        ENV_PROVIDERS
+    ],
+    declarations: [
+        AppComponent
     ],
     bootstrap: [AppComponent]
 })
