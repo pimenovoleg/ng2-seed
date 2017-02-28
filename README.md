@@ -35,12 +35,12 @@ Pull requests and stars are always welcome. For bugs and feature requests, [plea
 [license-img]: https://img.shields.io/badge/license-MIT-blue.svg
 
 
-Waiting resolve issue:
+## Waiting resolve issue:
 
-- [ ] https://youtrack.jetbrains.com/issue/WEB-19481
+- [x] https://youtrack.jetbrains.com/issue/WEB-19481 (Release in Webstorm 2017.x)
 - [ ] https://github.com/angular/angular/issues/12869
 
-Waiting PR (not bugs):
+## Waiting PR (not bugs):
 
 - [ ] https://github.com/ngrx/store/pull/269 `link with` https://github.com/angular/angular/pull/13593
 
