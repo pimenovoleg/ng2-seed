@@ -17,15 +17,15 @@
       "pi_men"
     ],
     "dependencies": {
-        "@angular/common": "4.0.0-rc.1",
-        "@angular/compiler": "4.0.0-rc.1",
-        "@angular/core": "4.0.0-rc.1",
-        "@angular/forms": "4.0.0-rc.1",
-        "@angular/http": "4.0.0-rc.1",
-        "@angular/platform-browser": "4.0.0-rc.1",
-        "@angular/platform-browser-dynamic": "4.0.0-rc.1",
-        "@angular/platform-server": "4.0.0-rc.1",
-        "@angular/router": "4.0.0-rc.1",
+        "@angular/common": "4.0.0-rc.2",
+        "@angular/compiler": "4.0.0-rc.2",
+        "@angular/core": "4.0.0-rc.2",
+        "@angular/forms": "4.0.0-rc.2",
+        "@angular/http": "4.0.0-rc.2",
+        "@angular/platform-browser": "4.0.0-rc.2",
+        "@angular/platform-browser-dynamic": "4.0.0-rc.2",
+        "@angular/platform-server": "4.0.0-rc.2",
+        "@angular/router": "4.0.0-rc.2",
 
         "@angular/material": "2.0.0-beta.2",
 
@@ -47,7 +47,7 @@
         "ts-md5": "1.2.0"
     },
     "devDependencies": {
-        "express": "4.14.1",
+        "express": "4.15.0",
 
         "@types/jasmine": "2.5.43",
         "@types/node": "7.0.5",
@@ -89,7 +89,7 @@
         "style-loader": "0.13.2",
         "source-map-loader": "0.1.6",
         "url-loader": "0.5.8",
-        "tslint-loader": "3.4.2",
+        "tslint-loader": "3.4.3",
         "to-string-loader": "1.1.5",
 
         "ts-helpers": "1.1.2",
@@ -129,7 +129,7 @@
 
         "docs": "typedoc -- --options typedoc.json --exclude '**/*.spec.ts' ./src/",
         "docs-pages": "wintersmith build -C docs",
-        
+
         "heroku:run": "npm run build:dll && npm run build:prod && npm run server:prod",
         "heroku:deploy": "git push origin master && git push heroku master",
 
