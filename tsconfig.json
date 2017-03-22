@@ -15,7 +15,11 @@
             "node_modules/@types"
         ],
         "types": [
-            "node"
+            "node",
+            "jasmine",
+            "node",
+            "webpack",
+            "source-map"
         ]
     },
     "exclude": [
