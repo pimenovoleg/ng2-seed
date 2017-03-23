@@ -38,7 +38,7 @@ Pull requests and stars are always welcome. For bugs and feature requests, [plea
 ## Waiting resolve issue:
 
 - [x] https://youtrack.jetbrains.com/issue/WEB-19481 (Release in Webstorm 2017.x)
-- [ ] https://github.com/angular/angular/issues/12869
+- [x] https://github.com/angular/angular/issues/12869
 
 ## Waiting PR (not bugs):
 
