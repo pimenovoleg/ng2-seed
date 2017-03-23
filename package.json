@@ -17,20 +17,20 @@
       "pi_men"
     ],
     "dependencies": {
-        "@angular/common": "4.0.0-rc.5",
-        "@angular/compiler": "4.0.0-rc.5",
-        "@angular/core": "4.0.0-rc.5",
-        "@angular/forms": "4.0.0-rc.5",
-        "@angular/http": "4.0.0-rc.5",
-        "@angular/platform-browser": "4.0.0-rc.5",
-        "@angular/platform-browser-dynamic": "4.0.0-rc.5",
-        "@angular/platform-server": "4.0.0-rc.5",
-        "@angular/router": "4.0.0-rc.5",
+        "@angular/common": "4.0.0-rc.6",
+        "@angular/compiler": "4.0.0-rc.6",
+        "@angular/core": "4.0.0-rc.6",
+        "@angular/forms": "4.0.0-rc.6",
+        "@angular/http": "4.0.0-rc.6",
+        "@angular/platform-browser": "4.0.0-rc.6",
+        "@angular/platform-browser-dynamic": "4.0.0-rc.6",
+        "@angular/platform-server": "4.0.0-rc.6",
+        "@angular/router": "4.0.0-rc.6",
 
         "@angular/material": "2.0.0-beta.2",
 
         "@ngrx/core": "1.2.0",
-        "@ngrx/effects": "2.0.1",
+        "@ngrx/effects": "2.0.2",
         "@ngrx/store": "2.2.1",
         "@ngrx/store-devtools": "3.2.3",
 
@@ -50,7 +50,7 @@
         "express": "4.15.2",
 
         "@types/jasmine": "2.5.46",
-        "@types/node": "7.0.8",
+        "@types/node": "7.0.10",
         "@types/source-map": "0.5.0",
         "@types/uglify-js": "2.6.28",
         "@types/webpack": "2.2.12",
@@ -109,7 +109,7 @@
         "ts-helpers": "1.1.2",
         "ts-node": "3.0.2",
         "tslint": "4.5.1",
-        "typedoc": "0.5.8",
+        "typedoc": "0.5.9",
         "typescript": "2.2.1",
 
         "webpack": "2.3.1",
