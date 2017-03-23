@@ -4,7 +4,7 @@ const helpers = require('./helpers');
 
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 
-const DLL_DIST = 'dist-dll';
+const DLL_DIST = helpers.root('dist-dll');
 const ENV = process.env.ENV = process.env.NODE_ENV;
 
 const METADATA = {
@@ -36,7 +36,8 @@ module.exports = {
         // https://github.com/angular/angular/issues/11580
         new webpack.ContextReplacementPlugin(
             // The (\\|\/) piece accounts for path separators in *nix and Windows
-            /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
+            ///angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
+            /angular(\\|\/)core(\\|\/)@angular/,
             helpers.root('./src')
         ),
 
