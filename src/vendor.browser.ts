@@ -28,5 +28,8 @@ import 'rxjs/add/operator/distinctUntilChanged';
 import '@ngrx/core';
 import '@ngrx/store';
 
+// Redux helpes
+import 'reselect';
+
 // Web dependencies
 import 'ts-md5/dist/md5';

@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 
 import * as hero from './ngrx/heroes.actions';
-import { AppStateWithHeroes, appReducerWithHeroes } from './ngrx/heroes.reducer';
+import * as fromReducer from './ngrx/heroes.reducer';
 
 @Component({
     selector: 'pt-heroes',
@@ -14,12 +14,14 @@ export class HeroesComponent implements OnInit {
 
     public heroes$: Observable<any>;
 
-    constructor(private store: Store<AppStateWithHeroes>) {
-        store.replaceReducer(appReducerWithHeroes);
+    constructor(private store: Store<fromReducer.AppStateWithHeroes>) {
+        // store.replaceReducer(fromReducer.appReducerWithHeroes);
+
+        // this.heroes$ = store.select(fromReducer.getHeroesEntities);
+
     }
 
     public ngOnInit() {
-        // this.heroes$ = this.store.select('heroes');
 
         this.store.dispatch(new hero.LoadingAction(true));
     }
